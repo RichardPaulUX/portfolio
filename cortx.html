@@ -1380,6 +1380,7 @@
 
   /* Small mobile (max 480px) */
   @media (max-width: 480px) {
+    body { overflow-x: hidden; }
     .landing-title { font-size: clamp(36px, 12vw, 56px); }
     .hero-statement { font-size: clamp(22px, 7vw, 30px); }
     .testimonials-grid { grid-template-columns: 1fr; }
@@ -3495,6 +3496,7 @@ body { background: #fff; overflow-x: hidden; }
 
 /* ── Mobile: up to 768px ── */
 @media (max-width: 768px) {
+  body { overflow-x: hidden; }
   .cx-container { padding: 0 20px; }
   .cx-section { padding: 48px 20px; }
 
@@ -3541,6 +3543,9 @@ body { background: #fff; overflow-x: hidden; }
 
 /* ── Small mobile: up to 480px ── */
 @media (max-width: 480px) {
+  body { overflow-x: hidden; }
+  .cx-footer-title { font-size: 28px; }
+  .cx-hey-avatar img { width: 100px; }
   .cx-h1 { font-size: 22px; }
   .cx-meta { grid-template-columns: 1fr; }
   .cx-mc { border-right: none !important; border-top: 1px solid var(--border); }
