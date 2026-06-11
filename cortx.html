@@ -218,20 +218,6 @@
     justify-content: center;
   }
 
-  .landing-face-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 100px;
-    padding: 4px 10px;
-    height: 64px;
-    width: 130px;
-    overflow: hidden;
-    position: relative;
-    flex-shrink: 0;
-  }
   .landing-face-pill img {
     width: 85%;
     height: 85%;
@@ -418,8 +404,6 @@
     height: auto;
     display: block;
   }
-    50% { opacity:0; transform: translate(-50%,-50%) translateY(4px); }
-
   /* ─── MARQUEE ─── */
   .marquee-section {
     width: 100%;
@@ -1315,6 +1299,10 @@
   /* Mobile (max 768px) */
   @media (max-width: 768px) {
 
+    body { overflow-x: hidden; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .about-principles { grid-template-columns: 1fr; }
+
     /* Nav */
     nav { top: 14px; }
     .nav-chip-text { min-width: 140px; font-size: 13px; }
@@ -1322,6 +1310,7 @@
     /* Landing */
     #landing { padding: 80px 20px 40px; }
     .landing-title { font-size: clamp(40px, 11vw, 72px); }
+    .landing-title-row { flex-wrap: wrap; gap: 8px; }
     .landing-face-pill { height: 72px; width: 130px; }
     .landing-subtitle { font-size: 14px; }
 
@@ -1399,6 +1388,12 @@
     .project-card { grid-template-columns: 1fr; }
     .nav-chip-text { min-width: 110px; }
     .contact-photo { width: 160px; }
+    .landing-face-pill { height: 56px; width: 110px; }
+    .about-inner { gap: 24px; }
+    #about { padding: 40px 20px; }
+    .about-heading { font-size: clamp(28px, 8vw, 40px); }
+    #landing { padding: 60px 16px 32px; }
+    .hero-inner { padding: 0 16px; }
   }
 
 
@@ -1555,7 +1550,6 @@
 
 
 
-.nav-typed{display:inline;}
 
 
 
