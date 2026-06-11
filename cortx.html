@@ -1948,9 +1948,7 @@
   width: 92vw;
   max-height: 88vh;
   cursor: grab;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  box-sizing: border-box;
 }
 .arch-lb-img-wrap:active { cursor: grabbing; }
 #arch-lb-img {
@@ -1958,7 +1956,6 @@
   border-radius: 8px;
   max-width: none;
   height: auto;
-  transition: width 0.15s;
 }
 .arch-lb-close {
   position: fixed; top: 24px; right: 24px;
@@ -3778,29 +3775,40 @@ cxTab(0);
   function applyScale() {
     var w = Math.round(baseW * scale);
     img.style.width = w + 'px';
-    // Center horizontally when smaller than wrap
-    if (w < wrap.clientWidth) {
-      img.style.marginLeft = Math.round((wrap.clientWidth - w) / 2) + 'px';
-    } else {
-      img.style.marginLeft = '0';
-    }
+    // Use padding so overflow is reachable on ALL sides (flex justify-center clips left)
+    var padH = Math.max(20, Math.round((wrap.clientWidth - w) / 2));
+    var padV = 20;
+    wrap.style.padding = padV + 'px ' + padH + 'px';
   }
 
   window.openArchZoom = function() {
     img.src = getSrcImg();
-    img.onload = function() {
-      // Fit image to 92vw × 88vh on open
-      var maxW = wrap.clientWidth;
-      var maxH = wrap.clientHeight;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // wait for layout to settle before measuring wrap size
+    requestAnimationFrame(function() {
+      img.onload = null;
+      var maxW = wrap.clientWidth - 40;
+      var maxH = wrap.clientHeight - 40;
       var ratio = img.naturalWidth / img.naturalHeight;
       baseW = Math.min(maxW, maxH * ratio, img.naturalWidth);
       scale = 1;
       applyScale();
       wrap.scrollTop = 0;
       wrap.scrollLeft = 0;
-    };
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    });
+    if (img.complete) {
+      requestAnimationFrame(function() {
+        var maxW = wrap.clientWidth - 40;
+        var maxH = wrap.clientHeight - 40;
+        var ratio = img.naturalWidth / img.naturalHeight;
+        baseW = Math.min(maxW, maxH * ratio, img.naturalWidth);
+        scale = 1;
+        applyScale();
+        wrap.scrollTop = 0;
+        wrap.scrollLeft = 0;
+      });
+    }
   };
 
   window.closeArchZoom = function() {
@@ -3839,9 +3847,23 @@ cxTab(0);
   wrap && wrap.addEventListener('wheel', function(e) {
     if (!lb.classList.contains('open')) return;
     e.preventDefault();
+    var rect = wrap.getBoundingClientRect();
+    var padH = parseFloat(wrap.style.paddingLeft) || 20;
+    var padV = parseFloat(wrap.style.paddingTop) || 20;
+    // cursor position inside the scrollable content
+    var ptX = e.clientX - rect.left + wrap.scrollLeft - padH;
+    var ptY = e.clientY - rect.top + wrap.scrollTop - padV;
+    var oldW = img.offsetWidth;
+    var oldH = img.offsetHeight;
     var delta = e.deltaY < 0 ? 0.12 : -0.12;
     scale = Math.min(Math.max(scale + delta, 0.25), 4);
     applyScale();
+    // Recalculate padding after scale change
+    var newPadH = parseFloat(wrap.style.paddingLeft) || 20;
+    var newPadV = parseFloat(wrap.style.paddingTop) || 20;
+    // Anchor scroll so the point under the cursor stays put
+    wrap.scrollLeft = ptX * (img.offsetWidth / oldW) + newPadH - (e.clientX - rect.left);
+    wrap.scrollTop  = ptY * (img.offsetHeight / oldH) + newPadV - (e.clientY - rect.top);
   }, { passive: false });
 })();
 </script>
