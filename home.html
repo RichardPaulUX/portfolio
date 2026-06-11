@@ -1359,10 +1359,15 @@
     .contact-inner {
       grid-template-columns: 1fr;
       gap: 32px;
+      text-align: center;
     }
-    .contact-photo { width: 200px; margin: 0 auto; }
+    .contact-left { display: flex; flex-direction: column; align-items: center; }
+    .contact-photo { width: 200px; margin: 0 auto; order: -1; }
     .cta-heading { font-size: 24px; }
-    .footer-bottom { font-size: 10px; }
+    .footer-email-block { margin-top: 28px; }
+    .footer-email-row { justify-content: center; }
+    .footer-socials { justify-content: center; }
+    .footer-bottom { font-size: 10px; text-align: center; }
 
     /* Menu */
     #menu-panel { width: 92vw; padding: 28px 28px 0; }
