@@ -1558,15 +1558,7 @@
 
 
 
-.nav-typed{display:inline;}
 
-50%{opacity:0;}}
-
-
-
-
-
-15%{transform:rotate(14deg);}30%{transform:rotate(-8deg);}45%{transform:rotate(14deg);}60%{transform:rotate(-4deg);}}
 
 
 /* MENU OVERLAY */
@@ -1668,6 +1660,8 @@
 .social-btn svg{width:15px;height:15px;}
 
 @media(max-width:768px){
+  body{overflow-x:hidden;}
+  .page-wrap{padding:40px 20px;}
   .profile-top{flex-direction:column;}
   .profile-btns{width:100%;}
   .btn-primary,.btn-secondary{flex:1;justify-content:center;}
@@ -1702,6 +1696,16 @@
 }
 .service-desc{font-size:13px;color:var(--ink-2);line-height:1.65;}
 @media(max-width:640px){.services-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  body{overflow-x:hidden;}
+  .page-wrap{padding:32px 16px;}
+  .profile-name{font-size:16px;}
+  .about-card{padding:20px 16px;}
+  .services-grid{grid-template-columns:1fr;}
+  .principles-grid{grid-template-columns:1fr;}
+  .profile-btns{flex-direction:column;}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;}
+}
 
 /* PRINCIPLES */
 .principles-section{
