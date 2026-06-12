@@ -7,37 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
 <style>
 /* ════════════════════════════════════════
    SHARED / HOME STYLES
 ════════════════════════════════════════ */
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --ink: #0F3547;
-    --ink-2: #474A55;
-    --ink-3: #474A55;
-    --paper: #ffffff;
-    --paper-2: #f0ede8;
-    --blue: #2651FF;
-    --blue-soft: #e8edff;
-    --green-soft: #e6f4ec;
-    --green: #1a9a4a;
-    --dark: #0a0c10;
-    --dark-2: #13161e;
-    --border: rgba(0,0,0,0.08);
-    --r: 12px;
-    --r-lg: 20px;
-  }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Manrope', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    }
 
   /* ─── LOADER ─── */
   #loader {
@@ -422,46 +398,6 @@
     50% { opacity:0; transform: translate(-50%,-50%) translateY(4px); }
   }
 
-  /* ─── MARQUEE ─── */
-  .marquee-section {
-    width: 100%;
-    overflow: hidden;
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-top: 60px;
-  }
-
-  .marquee-track {
-    display: flex;
-    gap: 0;
-    animation: marquee 28s linear infinite;
-    white-space: nowrap;
-  }
-
-  .marquee-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 32px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink-2);
-    letter-spacing: 0.02em;
-    border-right: 1px solid var(--border);
-  }
-  .marquee-item .diamond {
-    width: 5px; height: 5px;
-    background: var(--ink-3);
-    transform: rotate(45deg);
-    flex-shrink: 0;
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
   /* ─── WORK SECTION ─── */
   #work {
     padding: 48px 40px;
@@ -475,27 +411,6 @@
     align-items: center;
     margin-bottom: 40px;
     gap: 12px;
-  }
-
-  .work-eyebrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #f0eeff;
-    color: #6b5ce7;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 100px;
-  }
-
-  .work-heading {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--ink);
-    text-align: center;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
   }
 
   .project-card {
@@ -1003,18 +918,6 @@
     border-radius: 16px;
   }
 
-  .footer-bottom {
-    max-width: 960px;
-    margin: 40px auto 0;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--ink-3);
-    font-family: 'Manrope', sans-serif;
-    letter-spacing: 0.04em;
-    text-align: center;
-  }
-
   /* ─── PROJECT PAGE ─── */
   #project-page {
     display: none;
@@ -1407,102 +1310,6 @@
 
 
 
-  /* ─── MENU OVERLAY ─── */
-  #menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 53, 71, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: 198;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  #menu-overlay.open { opacity: 1; visibility: visible; }
-
-  #menu-panel {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: min(480px, 90vw);
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.15);
-    z-index: 199;
-    padding: 40px 40px 0 40px;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    transform: translateY(-10px);
-  }
-  #menu-panel.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .menu-inner {
-    position: relative;
-    padding-right: 145px;
-  }
-
-  .menu-left { width: 100%; }
-
-  .menu-name {
-    font-size: 22px;
-    font-weight: 700;
-    color: #0F3547;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 28px;
-  }
-
-  .menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .menu-link {
-    font-size: 24px;
-    font-weight: 700;
-    color: rgba(15,53,71,0.25);
-    text-decoration: none;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    transition: color 0.2s;
-    letter-spacing: -0.02em;
-    display: block;
-  }
-  .menu-link:last-child { border-bottom: none; }
-  .menu-link.active { color: #0F3547; }
-  .menu-link:hover { color: #0F3547; }
-
-  .menu-right {
-    position: absolute;
-    right: -20px;
-    bottom: -40px;
-    width: 160px;
-  }
-  .menu-right img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .menu-footer {
-    margin-top: 24px;
-    padding: 20px 0 28px;
-    border-top: 1px solid rgba(0,0,0,0.07);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
   .menu-email-box {
     display: flex;
     align-items: center;
@@ -1562,20 +1369,6 @@
 
 
 
-/* MENU OVERLAY */
-
-
-#menu-panel{position:fixed;top:72px;left:0;right:0;margin:0 auto;width:min(480px,90vw);background:white;border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,0.15);z-index:199;padding:40px 40px 0;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s;transform:translateY(-10px);}
-#menu-panel.open{opacity:1;visibility:visible;transform:translateY(0);}
-.menu-inner{position:relative;padding-right:145px;}
-.menu-left{width:100%;}
-.menu-name{font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-0.02em;line-height:1.2;margin-bottom:28px;}
-
-.menu-link{font-size:24px;font-weight:700;color:rgba(15,53,71,0.25);text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);transition:color .2s;letter-spacing:-0.02em;display:block;}
-.menu-link:last-child{border-bottom:none;}
-.menu-link.active,.menu-link:hover{color:var(--ink);}
-.menu-right{position:absolute;right:-20px;bottom:-40px;width:160px;pointer-events:none;}
-.menu-right img{width:100%;height:auto;display:block;}
 
 
 
@@ -2079,11 +1872,11 @@
   <!-- DESIGN PRINCIPLES -->
   <div class="principles-section">
     <div class="principles-header">
-      <div class="principles-eyebrow">
+      <div class="section-label">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         Design Approach
       </div>
-      <h2 class="principles-heading">Principles. What guides my design decisions</h2>
+      <h2 class="principles-heading section-heading">Principles. What guides my design decisions</h2>
     </div>
     <div class="principles-grid">
       <div class="principle-card">
@@ -2134,11 +1927,11 @@
   <!-- SERVICES SECTION -->
   <div class="services-section">
     <div class="principles-header">
-    <div class="principles-eyebrow">
+    <div class="section-label">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
       How can I help you
     </div>
-    <h2 class="principles-heading">Skills I bring to every engagement</h2>
+    <h2 class="principles-heading section-heading">Skills I bring to every engagement</h2>
     </div>
     <div class="services-grid">
       <div class="service-card">
