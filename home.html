@@ -802,11 +802,26 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 60px;
-    align-items: center;
+    grid-template-rows: auto auto;
+    gap: 8px 60px;
+    align-items: start;
+  }
+  .contact-top {
+    grid-column: 1;
+    grid-row: 1;
+    padding-left: 16px;
+  }
+  .contact-left {
+    grid-column: 1;
+    grid-row: 2;
+    padding-left: 16px;
+  }
+  .contact-photo {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
   }
 
-  .contact-left { padding-left: 16px; }
 
   .cta-sub {
     font-size: 14px;
@@ -1615,10 +1630,12 @@
     <!-- CONTACT -->
     <section id="contact">
       <div class="contact-inner">
-        <div class="contact-left">
+        <div class="contact-top">
           <h2 class="section-heading">All great ideas start with a conversation.</h2>
           <p class="cta-sub">Tell me yours and we'll build it together.</p>
+        </div>
 
+        <div class="contact-left">
           <div class="footer-email-block">
             <div class="footer-email-label">Email</div>
             <div class="footer-email-row">
