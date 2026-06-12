@@ -808,16 +808,6 @@
 
   .contact-left {}
 
-  .cta-heading {
-    font-family: 'Manrope', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-
   .cta-sub {
     font-size: 14px;
     color: var(--ink-3);
@@ -1237,12 +1227,8 @@
     .hero-currently { justify-content: center; }
 
     /* Marquee */
-    .marquee-section { padding: 20px 0; }
-    .marquee-item { padding: 0 20px; font-size: 12px; }
-
     /* Work */
     #work { padding: 40px 20px; }
-    .work-heading { font-size: 20px; }
     .project-card {
       grid-template-columns: 1fr;
     }
@@ -1267,17 +1253,9 @@
     }
     .contact-left { display: flex; flex-direction: column; align-items: center; }
     .contact-photo { width: 200px; margin: 0 auto; order: -1; }
-    .cta-heading { font-size: 24px; }
     .footer-email-block { margin-top: 28px; }
     .footer-email-row { justify-content: center; }
     .footer-socials { justify-content: center; }
-    .footer-bottom { font-size: 10px; text-align: center; }
-
-    /* Menu */
-    #menu-panel { width: 92vw; padding: 28px 28px 0; }
-    .menu-name { font-size: 18px; }
-    .menu-link { font-size: 20px; }
-    .menu-right { width: 120px; }
 
     /* Case study */
     .project-hero { padding: 60px 20px 32px; }
@@ -1316,64 +1294,6 @@
 
 
 
-  .menu-inner {
-    position: relative;
-    padding-right: 145px;
-  }
-
-  .menu-left { width: 100%; }
-
-  .menu-right {
-    position: absolute;
-    right: -20px;
-    bottom: -40px;
-    width: 160px;
-  }
-  .menu-right img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .menu-email-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 12px;
-    color: #474A55;
-    cursor: pointer;
-    flex: 1;
-    min-width: 0;
-  }
-  .menu-email-box span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .menu-email-box svg { flex-shrink: 0; width: 14px; height: 14px; color: #474A55; }
-
-  .menu-socials {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-  }
-  .menu-socials a {
-    color: #474A55;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .menu-socials a:hover { color: #0F3547; }
-  .menu-socials svg { width: 18px; height: 18px; display: block; }
-
-  /* Hamburger active state */
-  .nav-menu span { transition: transform 0.25s ease, opacity 0.25s ease; transform-origin: center; }
-  .nav-menu.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-  .nav-menu.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .nav-menu.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 </style>
 </head>
 <body>
@@ -1547,7 +1467,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg>
           Selected Work
         </div>
-        <h2 class="work-heading section-heading">Projects that reflect my approach to product thinking, design, and impact</h2>
+        <h2 class="section-heading">Projects that reflect my approach to product thinking, design, and impact</h2>
       </div>
 
       <!-- CORTX -->
@@ -1695,7 +1615,7 @@
     <section id="contact">
       <div class="contact-inner">
         <div class="contact-left">
-          <h2 class="cta-heading">All great ideas start with a conversation.</h2>
+          <h2 class="section-heading">All great ideas start with a conversation.</h2>
           <p class="cta-sub">Tell me yours and we'll build it together.</p>
 
           <div class="footer-email-block">
