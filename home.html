@@ -1261,15 +1261,11 @@
 
     /* Contact */
     #contact { padding: 40px 20px; }
-    .contact-inner {
-      grid-template-columns: 1fr;
-      gap: 32px;
-      text-align: center;
-    }
-    .contact-left { display: flex; flex-direction: column; align-items: center; }
+    .contact-inner { grid-template-columns: 1fr; grid-template-rows: auto; gap: 20px; }
+    .contact-top { grid-column: 1; grid-row: 1; padding-left: 0; text-align: center; }
+    .contact-photo { grid-column: 1; grid-row: 2; width: 180px; margin: 0 auto; }
+    .contact-left { grid-column: 1; grid-row: 3; padding-left: 0; display: flex; flex-direction: column; align-items: center; }
     #contact .section-heading { text-align: center; }
-    .contact-photo { width: 200px; margin: 0 auto; order: -1; }
-    .footer-email-block { margin-top: 28px; }
     .footer-email-row { justify-content: center; }
     .footer-socials { justify-content: center; }
 
