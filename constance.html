@@ -243,75 +243,14 @@
 
     /* ══════════════════════════════════════════
        FOOTER / WRAP — SECTION 9
+       Uses shared cx-footer-* classes, color overrides only
     ══════════════════════════════════════════ */
-    #cn-footer {
-      background: #ECE6DD;
-      padding: 80px 40px 0;
-      box-sizing: border-box;
-      width: 100%;
-    }
-    .cn-footer-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      padding-bottom: 64px;
-    }
-    .cn-footer-body {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      flex: 1;
-    }
-    .cn-footer-title {
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 800;
-      color: var(--ink);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-    .cn-footer-sub {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .cn-footer-sub span { color: var(--cn-teal); }
-    .cn-footer-desc {
-      font-size: 14px;
-      color: var(--ink-2);
-      line-height: 1.75;
-      max-width: 440px;
-    }
-    .cn-footer-wrap-img {
-      width: 220px;
-      flex-shrink: 0;
-    }
-    .cn-footer-wrap-img img {
-      width: 100%;
-      display: block;
-    }
-    .cn-footer-copy {
-      border-top: 1px solid rgba(0,0,0,0.1);
-      padding: 20px 0;
-      text-align: center;
-      font-size: 12px;
-      color: var(--ink-3);
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 768px) {
-      #cn-footer { padding: 64px 24px 0; }
-      .cn-footer-inner { flex-direction: column; gap: 32px; align-items: flex-start; padding-bottom: 48px; }
-      .cn-footer-wrap-img { width: 160px; align-self: flex-end; }
-    }
-    @media (max-width: 480px) {
-      #cn-footer { padding: 48px 20px 0; }
-      .cn-footer-inner { gap: 24px; }
-      .cn-footer-wrap-img { width: 130px; }
-    }
+    #cn-footer { background: #ECE6DD; }
+    #cn-footer .cx-footer-title { color: var(--ink); }
+    #cn-footer .cx-footer-sub { color: var(--ink); }
+    #cn-footer .cx-footer-sub span { color: var(--cn-teal); }
+    #cn-footer .cx-footer-body { color: var(--ink-2); }
+    #cn-footer .cx-footer-bottom { border-top-color: rgba(0,0,0,0.1); color: var(--ink-3); }
   </style>
 </head>
 <body>
@@ -565,19 +504,15 @@
      SECTION 9 — FOOTER / WRAP
 ════════════════════════════════════════════════════ -->
 <footer id="cn-footer">
-  <div class="cn-footer-inner">
-    <div class="cn-footer-body">
-      <h2 class="cn-footer-title">That's a Wrap</h2>
-      <p class="cn-footer-sub">Want to discuss this <span>project</span> ?</p>
-      <p class="cn-footer-desc">This Project is currently under NDA. If you're interested to learn more. I'm happy to dive deeper into specific design decisions and alternate approaches I considered.</p>
-    </div>
-    <div class="cn-footer-wrap-img">
-      <img src="constance-wrap.png" alt="That's a wrap" />
-    </div>
+  <div class="cx-footer-left">
+    <div class="cx-footer-title">That's a Wrap</div>
+    <div class="cx-footer-sub">Want to discuss this <span>project</span> ?</div>
+    <p class="cx-footer-body">This Project is currently under NDA. If you're interested to learn more.<br>I'm happy to dive deeper into specific design decisions and alternate approaches I considered.</p>
   </div>
-  <div class="cn-footer-copy">
-    © 2026 Godi S Richard Paul · AI Product Designer · India
+  <div class="cx-footer-right">
+    <img src="constance-wrap.png" alt="That's a wrap" />
   </div>
+  <div class="cx-footer-bottom">© 2026 Godi S Richard Paul · AI Product Designer · India</div>
 </footer>
 
 
