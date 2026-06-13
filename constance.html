@@ -195,6 +195,172 @@
     }
     @media (max-width: 768px) { #cn-statement { padding: 64px 32px; } }
     @media (max-width: 480px) { #cn-statement { padding: 48px 20px; } #cn-statement p { font-size: 15px; } }
+
+    /* ══════════════════════════════════════════
+       ABOUT PROJECT TABS — SECTION 5
+    ══════════════════════════════════════════ */
+    #cn-about {
+      padding: 80px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Tab strip */
+    .cn-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: var(--paper-2);
+    }
+    .cn-tab {
+      padding: 14px 16px 12px;
+      cursor: pointer;
+      border-right: 1px solid var(--border);
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .cn-tab:last-child { border-right: none; }
+    .cn-tab-on { background: var(--paper-2); }
+    .cn-tab-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+    .cn-tab-name {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-2);
+      flex: 1;
+      min-width: 0;
+    }
+    .cn-tab-name svg { stroke: var(--ink-2); flex-shrink: 0; }
+    .cn-tab-on .cn-tab-name { color: var(--ink); }
+    .cn-tab-on .cn-tab-name svg { stroke: var(--cn-teal); }
+    .cn-tab-sub {
+      font-size: 11px;
+      color: var(--ink-2);
+      line-height: 1.5;
+      opacity: 0.65;
+      padding-bottom: 10px;
+    }
+    .cn-tab-pause {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--ink-2);
+      font-size: 9px;
+      margin-top: 1px;
+      margin-left: auto;
+    }
+    .cn-tab-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+    }
+    .cn-tab-prog {
+      height: 2px;
+      background: var(--cn-teal);
+      width: 0%;
+      transition: width 0.05s linear;
+    }
+
+    /* Tab panel */
+    .cn-tab-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      background: #fff;
+    }
+    .cn-tab-panel-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cn-panel-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--cn-light);
+      border: 1.5px solid rgba(0,100,102,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cn-panel-icon svg { stroke: var(--cn-teal); width: 20px; height: 20px; }
+    .cn-panel-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .cn-panel-desc { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+    .cn-tab-panel-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 420px;
+    }
+    .cn-tab-panel-left {
+      border-right: 1px solid var(--border);
+      background: var(--cn-light);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .cn-tab-panel-left img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .cn-tab-panel-right {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.7;
+      height: 420px;
+      box-sizing: border-box;
+    }
+
+    /* Content helpers */
+    .cn-rt { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .cn-rb { font-size: 13px; color: var(--ink-2); line-height: 1.7; }
+    .cn-buls { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .cn-bul { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .cn-bul i { font-size: 16px; color: var(--cn-teal); margin-top: 1px; flex-shrink: 0; }
+    .cn-bul strong { color: var(--ink); font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #cn-about { padding: 64px 24px; }
+      .cn-tabs { grid-template-columns: 1fr 1fr 1fr; }
+      .cn-tab-sub { display: none; }
+      .cn-tab-panel-body { grid-template-columns: 1fr; height: auto; }
+      .cn-tab-panel-left { display: none; }
+      .cn-tab-panel-right { height: auto; min-height: 300px; padding: 20px; }
+    }
+    @media (max-width: 480px) {
+      #cn-about { padding: 48px 16px; }
+    }
   </style>
 </head>
 <body>
@@ -335,6 +501,62 @@
   <p>An AI-powered clinical decision support platform that analyzes patient risk, delivers explainable peri-operative insights, and guides evidence-based care decisions — helping clinicians improve outcomes with confidence.</p>
 </section>
 
+<!-- ═══════════════════════════════════════════════════
+     SECTION 5 — ABOUT PROJECT TABS
+════════════════════════════════════════════════════ -->
+<section id="cn-about">
+
+  <div class="section-label-wrap" style="justify-content:center;margin-bottom:16px;">
+    <span class="section-label"><i class="ti ti-layers-intersect"></i> About Project</span>
+  </div>
+  <h2 class="section-heading" style="max-width:640px;margin:0 auto 40px;">How I designed an AI-powered platform that translates patient data into actionable clinical insights.</h2>
+
+  <!-- Tab strip -->
+  <div class="cn-tabs" id="cn-tabs">
+    <div class="cn-tab cn-tab-on" id="cnt0" onclick="cnTab(0)">
+      <div class="cn-tab-top">
+        <div class="cn-tab-name" id="cntn0">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Overview
+        </div>
+      </div>
+      <div class="cn-tab-sub">Understanding the product</div>
+      <div class="cn-tab-bar"><div class="cn-tab-prog" id="cntp0"></div></div>
+    </div>
+    <div class="cn-tab" id="cnt1" onclick="cnTab(1)">
+      <div class="cn-tab-top">
+        <div class="cn-tab-name" id="cntn1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Problem
+        </div>
+      </div>
+      <div class="cn-tab-sub">Challenges enterprises face today</div>
+      <div class="cn-tab-bar"><div class="cn-tab-prog" id="cntp1"></div></div>
+    </div>
+    <div class="cn-tab" id="cnt2" onclick="cnTab(2)">
+      <div class="cn-tab-top">
+        <div class="cn-tab-name" id="cntn2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Solution
+        </div>
+      </div>
+      <div class="cn-tab-sub">What we aimed to solve</div>
+      <div class="cn-tab-bar"><div class="cn-tab-prog" id="cntp2"></div></div>
+    </div>
+  </div>
+
+  <!-- Tab panel -->
+  <div class="cn-tab-panel">
+    <div class="cn-tab-panel-head" id="cn-panel-head"></div>
+    <div class="cn-tab-panel-body">
+      <div class="cn-tab-panel-left" id="cn-panel-img"></div>
+      <div class="cn-tab-panel-right" id="cn-panel-content"></div>
+    </div>
+  </div>
+
+</section>
+
+
 <script>
 // ── Menu toggle ──
 function toggleMenu() {
@@ -343,6 +565,101 @@ function toggleMenu() {
   panel.classList.toggle('open');
   if (overlay) overlay.classList.toggle('open');
 }
+
+// ── About Project Tabs ──
+var CN_DUR = 6000;
+var cn_cur = 0, cn_el = 0, cn_st = null, cn_pau = false, cn_rf = null;
+
+var CN_SVGS = {
+  overview: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+  problem:  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+  solution: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+};
+
+var CN_TABS_META = [
+  { key: 'overview', name: 'Overview', title: 'An AI-powered platform for peri-operative risk assessment', desc: 'Understanding the product',
+    body: `
+      <p class="cn-rt">An AI-powered platform for peri-operative risk assessment</p>
+      <p class="cn-rb">Constance is a clinical decision support platform that helps healthcare professionals assess surgical risk before, during, and after procedures.</p>
+      <p class="cn-rb">The platform combines patient data, predictive AI models, and clinical recommendations to provide interpretable risk assessments and treatment guidance for peri-operative care.</p>
+      <p class="cn-rb">Designed for high-pressure clinical environments, Constance enables healthcare teams to access critical insights quickly while maintaining transparency, trust, and clinical oversight.</p>
+      <div class="cn-buls">
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Patient risk stratification</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Predictive clinical analytics</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Post-operative risk assessment</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Pain management recommendations</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>EMR integration</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Explainable AI insights</span></div>
+      </div>
+    `,
+    img: 'constance-overview.png'
+  },
+  { key: 'problem', name: 'Problem', title: 'Challenges in clinical decision making', desc: 'Challenges enterprises face today',
+    body: `<p class="cn-rt">Coming soon</p><p class="cn-rb">Problem tab content will be added here.</p>`,
+    img: ''
+  },
+  { key: 'solution', name: 'Solution', title: 'What we aimed to solve', desc: 'What we aimed to solve',
+    body: `<p class="cn-rt">Coming soon</p><p class="cn-rb">Solution tab content will be added here.</p>`,
+    img: ''
+  }
+];
+
+function cnRender(i) {
+  var t = CN_TABS_META[i];
+  document.getElementById('cn-panel-head').innerHTML = `
+    <div class="cn-panel-icon">
+      ${CN_SVGS[t.key]}
+    </div>
+    <div>
+      <div class="cn-panel-title">${t.title}</div>
+      <div class="cn-panel-desc">${t.desc}</div>
+    </div>`;
+  document.getElementById('cn-panel-content').innerHTML = t.body;
+  var imgEl = document.getElementById('cn-panel-img');
+  if (t.img) {
+    imgEl.innerHTML = `<img src="${t.img}" alt="${t.title}" />`;
+  } else {
+    imgEl.innerHTML = '<div style="width:100%;height:100%;background:var(--cn-light);display:flex;align-items:center;justify-content:center;color:var(--cn-teal);font-size:13px;font-weight:600;opacity:0.5;">Image coming soon</div>';
+  }
+}
+
+function cnTab(i) {
+  cancelAnimationFrame(cn_rf);
+  cn_cur = i; cn_el = 0; cn_st = null; cn_pau = false;
+  CN_TABS_META.forEach(function(m, x) {
+    document.getElementById('cnt' + x).classList.toggle('cn-tab-on', x === i);
+    document.getElementById('cntp' + x).style.width = '0%';
+    document.getElementById('cntn' + x).innerHTML = CN_SVGS[m.key] + ' ' + m.name;
+  });
+  var activeNameEl = document.getElementById('cntn' + i);
+  activeNameEl.innerHTML = CN_SVGS[CN_TABS_META[i].key] + ' ' + CN_TABS_META[i].name +
+    ' <span class="cn-tab-pause" id="cn-pause-btn" onclick="cnPause(event)">⏸</span>';
+  cnRender(i);
+  cnTick();
+}
+
+function cnPause(e) {
+  e.stopPropagation();
+  cn_pau = !cn_pau;
+  var btn = document.getElementById('cn-pause-btn');
+  if (cn_pau) { cancelAnimationFrame(cn_rf); cn_el = performance.now() - (cn_st || performance.now()); if(btn) btn.textContent = '▶'; }
+  else { if(btn) btn.textContent = '⏸'; cnTick(); }
+}
+
+function cnTick() {
+  cancelAnimationFrame(cn_rf);
+  var bar = document.getElementById('cntp' + cn_cur);
+  if (!bar || cn_pau) return;
+  cn_st = performance.now() - cn_el;
+  (function t(n) {
+    var d = n - cn_st;
+    bar.style.width = Math.min((d / CN_DUR) * 100, 100) + '%';
+    if (d >= CN_DUR) { cnTab((cn_cur + 1) % 3); return; }
+    cn_rf = requestAnimationFrame(t);
+  })(performance.now());
+}
+
+cnTab(0);
 
 // ── Nav typing ──
 (function() {
