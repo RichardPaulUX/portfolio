@@ -186,62 +186,12 @@
 
     /* ══════════════════════════════════════════
        HEY THERE — SECTION 6
+       Uses shared cx-hey-* classes, color overrides only
     ══════════════════════════════════════════ */
-    #cn-hey {
-      background: #ECE6DD;
-      padding: 64px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 48px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .cn-hey-avatar {
-      flex-shrink: 0;
-      width: 180px;
-    }
-    .cn-hey-avatar img {
-      width: 180px;
-      display: block;
-    }
-    .cn-hey-body {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 560px;
-    }
-    .cn-hey-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.4;
-      letter-spacing: -0.02em;
-      text-align: center;
-    }
-    .cn-hey-title .cn-hey-wave {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ink-2);
-      margin-bottom: 6px;
-    }
-    .cn-hey-desc {
-      font-size: 14px;
-      color: var(--ink-2);
-      line-height: 1.75;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      #cn-hey { flex-direction: column; gap: 28px; padding: 48px 28px; text-align: center; }
-      .cn-hey-avatar { width: 140px; }
-      .cn-hey-avatar img { width: 140px; }
-    }
-    @media (max-width: 480px) {
-      #cn-hey { padding: 40px 20px; }
-      .cn-hey-title { font-size: 17px; }
-    }
+    #cn-hey { background: #ECE6DD; }
+    #cn-hey .cx-hey-greeting { color: var(--ink); }
+    #cn-hey .cx-hey-p { color: var(--ink-2); }
+    #cn-hey .cx-hey-p2 { color: var(--ink-2); }
 
     /* ══════════════════════════════════════════
        HOW IT WORKS — SECTION 7
@@ -587,15 +537,13 @@
      SECTION 6 — HEY THERE
 ════════════════════════════════════════════════════ -->
 <section id="cn-hey">
-  <div class="cn-hey-avatar">
+  <div class="cx-hey-avatar">
     <img src="constance-avatar.png" alt="Richard Paul waving" />
   </div>
-  <div class="cn-hey-body">
-    <p class="cn-hey-title">
-      <span class="cn-hey-wave">👋 Hey there!</span>
-      Most AI products help people work faster. Constance helps clinicians make safer decisions.
-    </p>
-    <p class="cn-hey-desc">This case study explores how I designed an AI-powered clinical decision support platform that transforms complex peri-operative risk models into clear, interpretable insights helping healthcare professionals assess surgical risk, identify complications early, and make more informed treatment decisions.</p>
+  <div class="cx-hey-body">
+    <div class="cx-hey-greeting">👋 Hey there!</div>
+    <p class="cx-hey-p">Most AI products help people work faster. Constance helps clinicians make safer decisions.</p>
+    <p class="cx-hey-p2">This case study explores how I designed an AI-powered clinical decision support platform that transforms complex peri-operative risk models into clear, interpretable insights helping healthcare professionals assess surgical risk, identify complications early, and make more informed treatment decisions.</p>
   </div>
 </section>
 
