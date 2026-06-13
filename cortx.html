@@ -3071,7 +3071,8 @@ body { background: #fff; overflow-x: hidden; }
 .cx-tab-panel-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 420px;
+  min-height: 420px;
+  height: auto;
 }
 .cx-tab-panel-left {
   border-right: 1px solid var(--border);
@@ -3091,11 +3092,11 @@ body { background: #fff; overflow-x: hidden; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow: hidden;
+  overflow: visible;
   font-size: 13px;
   color: var(--ink-2);
   line-height: 1.7;
-  height: 420px;
+  height: auto;
   box-sizing: border-box;
 }
 
