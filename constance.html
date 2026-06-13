@@ -711,12 +711,12 @@ var CN_TABS_META = [
 function cnRender(i) {
   var t = CN_TABS_META[i];
   document.getElementById('cn-panel-head').innerHTML = `
-    <div class="cn-panel-icon">
+    <div class="cx-panel-icon">
       ${CN_SVGS[t.key]}
     </div>
     <div>
-      <div class="cn-panel-title">${t.title}</div>
-      <div class="cn-panel-desc">${t.desc}</div>
+      <div class="cx-panel-title">${t.title}</div>
+      <div class="cx-panel-desc">${t.desc}</div>
     </div>`;
   document.getElementById('cn-panel-content').innerHTML = t.body;
   var imgEl = document.getElementById('cn-panel-img');
@@ -737,7 +737,7 @@ function cnTab(i) {
   });
   var activeNameEl = document.getElementById('cntn' + i);
   activeNameEl.innerHTML = CN_SVGS[CN_TABS_META[i].key] + ' ' + CN_TABS_META[i].name +
-    ' <span class="cn-tab-pause" id="cn-pause-btn" onclick="cnPause(event)">⏸</span>';
+    ' <span class="cx-tab-pause" id="cn-pause-btn" onclick="cnPause(event)">⏸</span>';
   cnRender(i);
   cnTick();
 }
