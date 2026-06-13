@@ -420,6 +420,81 @@
       #cn-hey { padding: 40px 20px; }
       .cn-hey-title { font-size: 17px; }
     }
+
+    /* ══════════════════════════════════════════
+       HOW IT WORKS — SECTION 7
+    ══════════════════════════════════════════ */
+    #cn-hiw {
+      background: #f4f6fb;
+      padding: 80px 40px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .cn-hiw-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .cn-hiw-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    .cn-hiw-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .cn-hiw-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+    .cn-hiw-num {
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #f59e0b;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cn-hiw-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: contain;
+      display: block;
+    }
+    .cn-hiw-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      #cn-hiw { padding: 64px 24px; }
+      .cn-hiw-cards { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    }
+    @media (max-width: 480px) {
+      #cn-hiw { padding: 48px 16px; }
+      .cn-hiw-heading { font-size: 18px; }
+    }
   </style>
 </head>
 <body>
@@ -629,6 +704,43 @@
       Most AI products help people work faster. Constance helps clinicians make safer decisions.
     </p>
     <p class="cn-hey-desc">This case study explores how I designed an AI-powered clinical decision support platform that transforms complex peri-operative risk models into clear, interpretable insights helping healthcare professionals assess surgical risk, identify complications early, and make more informed treatment decisions.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 7 — HOW IT WORKS
+════════════════════════════════════════════════════ -->
+<section id="cn-hiw">
+  <div class="cn-hiw-inner">
+
+    <div class="section-label-wrap" style="justify-content:center;margin-bottom:16px;">
+      <span class="section-label"><i class="ti ti-route"></i> How It Works</span>
+    </div>
+
+    <p class="cn-hiw-heading">Constance's algorithm provides practical recommendations for op pain management risk stratification based on integrated patient data.</p>
+
+    <div class="cn-hiw-cards">
+
+      <div class="cn-hiw-card">
+        <div class="cn-hiw-num">1</div>
+        <img class="cn-hiw-img" src="constance-hiw-1.png" alt="Sign Up" />
+        <p class="cn-hiw-label">Sign Up</p>
+      </div>
+
+      <div class="cn-hiw-card">
+        <div class="cn-hiw-num">2</div>
+        <img class="cn-hiw-img" src="constance-hiw-2.png" alt="Lookup or Add Patient" />
+        <p class="cn-hiw-label">Lookup or Add Patient</p>
+      </div>
+
+      <div class="cn-hiw-card">
+        <div class="cn-hiw-num">3</div>
+        <img class="cn-hiw-img" src="constance-hiw-3.png" alt="Review Recommendations" />
+        <p class="cn-hiw-label">Review Recommendations</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
