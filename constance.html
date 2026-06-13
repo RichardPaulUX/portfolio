@@ -132,53 +132,6 @@
       #cn-hero .cx-container { padding: 20px 16px 0; }
     }
 
-    /* ══════════════════════════════════════════
-       INTRO IMAGE — SECTION 2
-    ══════════════════════════════════════════ */
-    #cn-intro {
-      width: 100%;
-      background: var(--cn-bg);
-      padding: 0 40px 64px;
-      box-sizing: border-box;
-    }
-    .cn-intro-frame {
-      max-width: 960px;
-      margin: 0 auto;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 24px 80px rgba(0,100,102,0.12), 0 4px 16px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,100,102,0.1);
-      cursor: zoom-in;
-    }
-    .cn-intro-frame img {
-      width: 100%;
-      display: block;
-      border-radius: 16px;
-    }
-
-    /* Placeholder shown when no real image provided */
-    .cn-intro-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #e6f4f4 0%, #c8e8e8 40%, #006466 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 12px;
-      color: rgba(255,255,255,0.9);
-      font-size: 15px;
-      font-weight: 600;
-    }
-    .cn-intro-placeholder i { font-size: 40px; opacity: 0.6; }
-
-    @media (max-width: 768px) {
-      #cn-intro { padding: 0 20px 40px; }
-      .cn-intro-frame { border-radius: 12px; }
-    }
-    @media (max-width: 480px) {
-      #cn-intro { padding: 0 16px 32px; }
-    }
 
     /* ══════════════════════════════════════════
        STATEMENT — SECTION 4
@@ -674,17 +627,11 @@
       </div>
     </div>
 
-  </div>
+    <!-- Dashboard image -->
+    <div class="cx-browser-wrap" style="background:#e6f4f4;">
+      <img src="constance-intro.png" alt="Constance Dashboard" />
+    </div>
 
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════
-     SECTION 2 — INTRO IMAGE
-════════════════════════════════════════════════════ -->
-<section id="cn-intro">
-  <div class="cn-intro-frame">
-    <img src="constance-intro.png" alt="Constance Dashboard" />
   </div>
 </section>
 
