@@ -495,6 +495,48 @@
       #cn-hiw { padding: 48px 16px; }
       .cn-hiw-heading { font-size: 18px; }
     }
+
+    /* ══════════════════════════════════════════
+       UI SNIPPETS — SECTION 8
+    ══════════════════════════════════════════ */
+    #cn-ui {
+      background: var(--cn-bg);
+      padding: 80px 40px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .cn-ui-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .cn-ui-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cn-ui-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,100,102,0.06);
+    }
+    .cn-ui-card.cn-ui-full {
+      grid-column: 1 / -1;
+    }
+    .cn-ui-card img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      #cn-ui { padding: 64px 24px; }
+      .cn-ui-grid { grid-template-columns: 1fr; }
+      .cn-ui-card.cn-ui-full { grid-column: 1; }
+    }
+    @media (max-width: 480px) {
+      #cn-ui { padding: 48px 16px; }
+    }
   </style>
 </head>
 <body>
@@ -738,6 +780,34 @@
         <div class="cn-hiw-num">3</div>
         <img class="cn-hiw-img" src="constance-hiw-3.png" alt="Review Recommendations" />
         <p class="cn-hiw-label">Review Recommendations</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 8 — UI SNIPPETS
+════════════════════════════════════════════════════ -->
+<section id="cn-ui">
+  <div class="cn-ui-inner">
+
+    <div class="section-label-wrap" style="justify-content:center;margin-bottom:16px;">
+      <span class="section-label"><i class="ti ti-layout-grid"></i> UI Snippets</span>
+    </div>
+    <h2 class="section-heading" style="margin-bottom:40px;">Experiences I helped design</h2>
+
+    <div class="cn-ui-grid">
+
+      <!-- Full-width: Dashboard -->
+      <div class="cn-ui-card cn-ui-full">
+        <img src="constance-ui-1.png" alt="Patient Risk Overview Dashboard" />
+      </div>
+
+      <!-- Half: Navigation -->
+      <div class="cn-ui-card cn-ui-full">
+        <img src="constance-ui-2.png" alt="Navigation — Expanded Sidebar, Workspace Switcher, Collapsed Rail" />
       </div>
 
     </div>
