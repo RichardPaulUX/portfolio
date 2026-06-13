@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Constance – AI Risk Prediction for Healthcare | Richard Paul</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="global.css">
+
+  <style>
+    /* ══════════════════════════════════════════
+       CONSTANCE PAGE — COLOR TOKENS
+    ══════════════════════════════════════════ */
+    :root {
+      --cn-teal:   #006466;
+      --cn-teal-2: #0d9488;
+      --cn-light:  #e6f4f4;
+      --cn-bg:     #f7fafa;
+    }
+
+    /* ── Base ── */
+    html, body { margin: 0; padding: 0; }
+    body { background: #fff; }
+
+    /* ══════════════════════════════════════════
+       HERO — SECTION 1
+    ══════════════════════════════════════════ */
+    #cn-hero {
+      background: #fff;
+      padding: 80px 40px 56px;
+      max-width: 960px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Back button */
+    .cn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px 6px 10px;
+      background: #fff;
+      margin-bottom: 40px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .cn-back:hover { border-color: var(--ink); color: var(--ink); }
+    .cn-back svg { width: 14px; height: 14px; }
+
+    /* Project label */
+    .cn-project-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-3);
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+    .cn-project-label span {
+      color: var(--cn-teal);
+      font-weight: 600;
+    }
+
+    /* Hero heading */
+    .cn-hero-heading {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 48px;
+    }
+    .cn-hero-heading .cn-accent { color: var(--cn-teal); }
+
+    /* Meta row */
+    .cn-meta-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+    }
+
+    .cn-meta-item {
+      padding: 20px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .cn-meta-item:last-child { border-right: none; }
+
+    .cn-meta-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cn-teal);
+      margin-bottom: 6px;
+    }
+    .cn-meta-label i { font-size: 14px; }
+
+    .cn-meta-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+      line-height: 1.4;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      #cn-hero { padding: 72px 24px 40px; }
+      .cn-meta-row { grid-template-columns: repeat(2, 1fr); }
+      .cn-meta-item:nth-child(2) { border-right: none; }
+      .cn-meta-item:nth-child(3) { border-top: 1px solid var(--border); }
+      .cn-meta-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+    }
+    @media (max-width: 480px) {
+      #cn-hero { padding: 64px 20px 32px; }
+      .cn-hero-heading { font-size: clamp(24px, 8vw, 36px); margin-bottom: 32px; }
+      .cn-meta-row { grid-template-columns: 1fr 1fr; }
+      .cn-meta-item { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MENU PANEL -->
+<div id="menu-panel">
+  <div class="menu-inner">
+    <div class="menu-left">
+      <div class="menu-name">Hi I'm<br>Richard Paul</div>
+      <div class="menu-links">
+        <a href="#" class="menu-link active" onclick="window.location.href='home.html'; return false;">Home</a>
+        <a href="#" class="menu-link" onclick="window.location.href='about.html'; return false;">About</a>
+        <a href="#" class="menu-link" onclick="toggleMenu(); return false;">Notes</a>
+        <a href="#" class="menu-link" onclick="toggleMenu(); return false;">Resume</a>
+      </div>
+    </div>
+    <div class="menu-right"></div>
+  </div>
+  <div class="menu-footer">
+    <div class="menu-email-box" onclick="navigator.clipboard.writeText('richardpaul.uxdesigner@gmail.com')">
+      <span>richardpaul.uxdesigner@gmail.com</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    </div>
+    <div class="menu-socials">
+      <a href="https://www.linkedin.com/in/richardpauluxdesigner/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://dribbble.com/Richard_Paul" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav style="position:fixed;top:20px;left:0;right:0;width:100%;display:flex;justify-content:center;align-items:center;z-index:9998;pointer-events:none;">
+  <div class="nav-chip" style="pointer-events:all;">
+    <div class="nav-avatar">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23006466'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Manrope,sans-serif' font-size='14' font-weight='700' fill='white'%3ER%3C/text%3E%3C/svg%3E" alt="R" />
+    </div>
+    <div class="nav-chip-text" id="nav-typed"></div>
+    <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 1 — HERO
+════════════════════════════════════════════════════ -->
+<section id="cn-hero">
+
+  <a href="home.html" class="cn-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back
+  </a>
+
+  <p class="cn-project-label"><span>Constance</span> | 2022 – 2023</p>
+
+  <h1 class="cn-hero-heading">
+    Designing <span class="cn-accent">AI – Risk Prediction</span> for Healthcare Teams
+  </h1>
+
+  <div class="cn-meta-row">
+    <div class="cn-meta-item">
+      <div class="cn-meta-label">
+        <i class="ti ti-briefcase"></i> Role
+      </div>
+      <div class="cn-meta-value">Product Designer</div>
+    </div>
+    <div class="cn-meta-item">
+      <div class="cn-meta-label">
+        <i class="ti ti-device-desktop"></i> Platform
+      </div>
+      <div class="cn-meta-value">Web | Mobile | Tab</div>
+    </div>
+    <div class="cn-meta-item">
+      <div class="cn-meta-label">
+        <i class="ti ti-building-hospital"></i> Industry
+      </div>
+      <div class="cn-meta-value">Healthcare, AI</div>
+    </div>
+    <div class="cn-meta-item">
+      <div class="cn-meta-label">
+        <i class="ti ti-vector-triangle"></i> Scope
+      </div>
+      <div class="cn-meta-value">Product Design 0–1</div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+// ── Menu toggle ──
+function toggleMenu() {
+  var panel = document.getElementById('menu-panel');
+  var overlay = document.getElementById('menu-overlay');
+  panel.classList.toggle('open');
+  if (overlay) overlay.classList.toggle('open');
+}
+
+// ── Nav typing ──
+(function() {
+  var messages = ['Constance · Case Study', 'AI Risk Prediction', 'Richard Paul'];
+  var mi = 0, ci = 0, deleting = false;
+  var el = document.getElementById('nav-typed');
+  if (!el) return;
+  function tick() {
+    var msg = messages[mi];
+    if (!deleting) {
+      ci++;
+      el.textContent = msg.slice(0, ci);
+      if (ci === msg.length) { deleting = true; setTimeout(tick, 2000); return; }
+    } else {
+      ci--;
+      el.textContent = msg.slice(0, ci);
+      if (ci === 0) { deleting = false; mi = (mi + 1) % messages.length; }
+    }
+    setTimeout(tick, deleting ? 40 : 80);
+  }
+  setTimeout(tick, 600);
+})();
+</script>
+
+</body>
+</html>
