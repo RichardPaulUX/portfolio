@@ -613,10 +613,19 @@
 <script>
 // ── Menu toggle ──
 function toggleMenu() {
-  var panel = document.getElementById('menu-panel');
-  var overlay = document.getElementById('menu-overlay');
-  panel.classList.toggle('open');
-  if (overlay) overlay.classList.toggle('open');
+  const panel = document.getElementById('menu-panel');
+  const overlay = document.getElementById('menu-overlay');
+  const btns = document.querySelectorAll('.nav-menu');
+  const isOpen = panel.classList.contains('open');
+  if (isOpen) {
+    panel.classList.remove('open');
+    overlay.classList.remove('open');
+    btns.forEach(b => b.classList.remove('active'));
+  } else {
+    panel.classList.add('open');
+    overlay.classList.add('open');
+    btns.forEach(b => b.classList.add('active'));
+  }
 }
 
 // ── Loader ──
