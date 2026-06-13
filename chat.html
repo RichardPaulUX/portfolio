@@ -282,24 +282,31 @@
     <div class="cx-tabs" id="ch-tabs">
       <div class="cx-tab cx-tab-on" id="cht0" onclick="chTab(0)">
         <div class="cx-tab-top"><div class="cx-tab-name" id="chtn0">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
           Overview</div></div>
         <div class="cx-tab-sub">Understanding the feature</div>
         <div class="cx-tab-bar"><div class="cx-tab-prog" id="chtp0"></div></div>
       </div>
       <div class="cx-tab" id="cht1" onclick="chTab(1)">
         <div class="cx-tab-top"><div class="cx-tab-name" id="chtn1">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
           Problem</div></div>
         <div class="cx-tab-sub">Challenges to solve</div>
         <div class="cx-tab-bar"><div class="cx-tab-prog" id="chtp1"></div></div>
       </div>
       <div class="cx-tab" id="cht2" onclick="chTab(2)">
         <div class="cx-tab-top"><div class="cx-tab-name" id="chtn2">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Solution</div></div>
-        <div class="cx-tab-sub">What we aimed to build</div>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          Goals</div></div>
+        <div class="cx-tab-sub">What we aimed to solve</div>
         <div class="cx-tab-bar"><div class="cx-tab-prog" id="chtp2"></div></div>
+      </div>
+      <div class="cx-tab" id="cht3" onclick="chTab(3)">
+        <div class="cx-tab-top"><div class="cx-tab-name" id="chtn3">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 4-6 4 5"/><path d="M3 21h18"/></svg>
+          Impact</div></div>
+        <div class="cx-tab-sub">What the feature achieved</div>
+        <div class="cx-tab-bar"><div class="cx-tab-prog" id="chtp3"></div></div>
       </div>
     </div>
     <div class="cx-tab-panel">
@@ -507,20 +514,22 @@ setTimeout(function(){typedEl=document.getElementById('nav-typed');iconEl=docume
 
 var CH_DUR=6000,ch_cur=0,ch_el=0,ch_st=null,ch_pau=false,ch_rf=null;
 var CH_SVGS={
-  overview:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
-  problem:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
-  solution:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+  overview:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+  problem:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>',
+  goals:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+  impact:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 4-6 4 5"/><path d="M3 21h18"/></svg>'
 };
 var CH_TABS=[
-  {key:'overview',name:'Overview',title:'The conversational layer of xnode AI',desc:'Understanding the feature',img:'chat-overview.png',body:'<p class="cx-rt">xnode Chat is the primary interaction surface of the AI Control Plane &mdash; a thread-based workspace where enterprise teams query models, retrieve knowledge, and orchestrate AI workflows through natural conversation.</p><p class="cx-rb">Unlike generic chat tools, it is designed for high-trust, high-complexity enterprise workflows where context continuity, data grounding, and access control are non-negotiable.</p><div class="cx-buls"><div class="cx-bul"><i class="ti ti-circle-check"></i><span>Thread-based conversation with persistent memory</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span>Multi-model support with smart routing</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span>Data source connectors with role-based filtering</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span>Source citations with confidence indicators</span></div></div>'},
-  {key:'problem',name:'Problem',title:'Enterprise chat was built for consumers, not complex work',desc:'Challenges to solve',img:'chat-problem.png',body:'<p class="cx-rt">Enterprise teams needed AI-assisted workflows &mdash; but available tools were built for consumer use cases, not complex multi-session enterprise environments.</p><p class="cx-rb">Users either didn\'t trust AI responses, couldn\'t verify them, or spent more time re-explaining context than doing actual work.</p><p class="cx-rt" style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--ink-2);margin-top:4px;">Core Problems</p><div class="cx-buls"><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>No memory:</strong> each new conversation started from zero</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>No verification:</strong> responses couldn\'t be traced to sources</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>No access control:</strong> data boundaries weren\'t respected</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>No guidance:</strong> users didn\'t know which model to use</span></div></div>'},
-  {key:'solution',name:'Solution',title:'Context-aware AI chat, built for enterprise trust',desc:'What we aimed to build',img:'chat-solution.png',body:'<p class="cx-rt">We designed a persistent, source-grounded chat experience that maintains full context across sessions, surfaces verifiable citations, and enforces role-based data visibility &mdash; without adding complexity for the end user.</p><p class="cx-rb">The interface hides all of this infrastructure behind a clean conversational surface. Users just talk &mdash; the system handles the rest.</p><div class="cx-buls"><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>Persistent threads:</strong> context never lost between sessions</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>Grounded responses:</strong> every answer cites its source</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>Invisible access control:</strong> data filters by role automatically</span></div><div class="cx-bul"><i class="ti ti-circle-check"></i><span><strong>Smart routing:</strong> right model for every task type</span></div></div>'}
+  {key:'overview',name:'Overview',title:'The conversational layer of xnode AI',img:'chat-overview.png',body:'<div class="cx-rt">Content coming soon</div>'},
+  {key:'problem', name:'Problem', title:'Enterprise chat was built for consumers, not complex work',img:'chat-problem.png',body:'<div class="cx-rt">Content coming soon</div>'},
+  {key:'goals',   name:'Goals',   title:'What we aimed to solve',img:'chat-goals.png',body:'<div class="cx-rt">Content coming soon</div>'},
+  {key:'impact',  name:'Impact',  title:'What the feature achieved',img:'chat-impact.png',body:'<div class="cx-rt">Content coming soon</div>'}
 ];
 function chRender(i){
   var t=CH_TABS[i];
   document.getElementById('ch-panel-head').innerHTML='<div class="cx-panel-icon">'+CH_SVGS[t.key]+'</div><div><div class="cx-panel-title">'+t.name+'</div><div class="cx-panel-desc">'+t.title+'</div></div>';
   document.getElementById('ch-panel-content').innerHTML=t.body;
-  document.getElementById('ch-panel-img').innerHTML=t.img?'<img src="'+t.img+'" alt="'+t.name+'" />':'<div style="width:100%;height:100%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:13px;font-weight:600;opacity:.5;">Image coming soon</div>';
+  document.getElementById('ch-panel-img').innerHTML='<img src="'+t.img+'" alt="'+t.name+'" style="width:100%;height:100%;object-fit:cover;display:block;" />';
 }
 function chTab(i){
   cancelAnimationFrame(ch_rf);ch_cur=i;ch_el=0;ch_st=null;ch_pau=false;
