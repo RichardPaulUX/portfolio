@@ -527,7 +527,313 @@ const CH_TABS_META = [
   { key:'goals',    name:'Goals',    sub:'What we aimed to solve' },
   { key:'impact',   name:'Impact',   sub:'What the feature achieved' },
 ];
-const CH_TAB_IMAGES = ['chat-overview.png','chat-problem.png','chat-goals.png','chat-impact.png'];
+const CH_TAB_SVGS = [
+  /* 0 – Overview: multi-actor chat workspace */
+  `<svg width="100%" height="100%" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+    <rect width="480" height="420" fill="#eceeff"/>
+    <!-- Sidebar -->
+    <rect x="0" y="0" width="110" height="420" fill="#fff" opacity="0.7"/>
+    <rect x="110" y="0" width="1" height="420" fill="#e0e2ff"/>
+    <rect x="12" y="16" width="24" height="24" rx="6" fill="#242ED6"/>
+    <rect x="16" y="22" width="16" height="3" rx="1.5" fill="#fff"/>
+    <rect x="16" y="28" width="11" height="3" rx="1.5" fill="#fff" opacity="0.7"/>
+    <rect x="12" y="52" width="86" height="26" rx="7" fill="#242ED6"/>
+    <rect x="26" y="62" width="52" height="5" rx="2.5" fill="#fff" opacity="0.9"/>
+    <rect x="12" y="90" width="86" height="28" rx="7" fill="#eceeff"/>
+    <rect x="20" y="101" width="56" height="5" rx="2.5" fill="#242ED6" opacity="0.5"/>
+    <rect x="12" y="124" width="86" height="28" rx="7"/>
+    <rect x="20" y="135" width="44" height="5" rx="2.5" fill="#374151" opacity="0.2"/>
+    <rect x="12" y="158" width="86" height="28" rx="7"/>
+    <rect x="20" y="169" width="60" height="5" rx="2.5" fill="#374151" opacity="0.2"/>
+    <rect x="12" y="192" width="86" height="28" rx="7"/>
+    <rect x="20" y="203" width="48" height="5" rx="2.5" fill="#374151" opacity="0.2"/>
+    <!-- Data sources -->
+    <rect x="12" y="238" width="40" height="4" rx="2" fill="#374151" opacity="0.2"/>
+    <rect x="12" y="250" width="86" height="22" rx="6" fill="#f0f1ff"/>
+    <circle cx="22" cy="261" r="4" fill="#059669" opacity="0.7"/>
+    <rect x="30" y="258" width="44" height="4" rx="2" fill="#374151" opacity="0.25"/>
+    <rect x="12" y="278" width="86" height="22" rx="6" fill="#f0f1ff"/>
+    <circle cx="22" cy="289" r="4" fill="#F59E0B" opacity="0.7"/>
+    <rect x="30" y="286" width="36" height="4" rx="2" fill="#374151" opacity="0.25"/>
+    <rect x="12" y="306" width="86" height="22" rx="6" fill="#f0f1ff"/>
+    <circle cx="22" cy="317" r="4" fill="#242ED6" opacity="0.5"/>
+    <rect x="30" y="314" width="50" height="4" rx="2" fill="#374151" opacity="0.25"/>
+    <!-- Chat area -->
+    <!-- User bubble -->
+    <rect x="270" y="28" width="186" height="52" rx="10" fill="#242ED6" opacity="0.12"/>
+    <rect x="282" y="40" width="130" height="6" rx="3" fill="#242ED6" opacity="0.45"/>
+    <rect x="282" y="52" width="100" height="5" rx="2.5" fill="#242ED6" opacity="0.25"/>
+    <circle cx="258" cy="54" r="10" fill="#eceeff"/>
+    <rect x="253" y="50" width="10" height="7" rx="2" fill="#242ED6" opacity="0.4"/>
+    <!-- AI response -->
+    <rect x="122" y="100" width="200" height="80" rx="10" fill="#fff" opacity="0.9"/>
+    <rect x="122" y="100" width="28" height="28" rx="7" fill="#242ED6"/>
+    <rect x="128" y="107" width="16" height="3" rx="1.5" fill="#fff"/>
+    <rect x="128" y="113" width="11" height="3" rx="1.5" fill="#fff" opacity="0.7"/>
+    <rect x="128" y="119" width="13" height="3" rx="1.5" fill="#fff" opacity="0.5"/>
+    <rect x="158" y="106" width="110" height="6" rx="3" fill="#111827" opacity="0.6"/>
+    <rect x="134" y="140" width="172" height="5" rx="2.5" fill="#374151" opacity="0.2"/>
+    <rect x="134" y="150" width="140" height="5" rx="2.5" fill="#374151" opacity="0.15"/>
+    <rect x="134" y="160" width="100" height="5" rx="2.5" fill="#374151" opacity="0.1"/>
+    <!-- Citations -->
+    <rect x="134" y="172" width="72" height="18" rx="9" fill="#eceeff"/>
+    <circle cx="144" cy="181" r="3" fill="#242ED6" opacity="0.5"/>
+    <rect x="150" y="178" width="40" height="4" rx="2" fill="#242ED6" opacity="0.4"/>
+    <rect x="212" y="172" width="72" height="18" rx="9" fill="#eceeff"/>
+    <circle cx="222" cy="181" r="3" fill="#059669" opacity="0.5"/>
+    <rect x="228" y="178" width="40" height="4" rx="2" fill="#374151" opacity="0.25"/>
+    <!-- Agent bubble -->
+    <rect x="270" y="200" width="186" height="52" rx="10" fill="#eceeff"/>
+    <rect x="282" y="212" width="120" height="6" rx="3" fill="#242ED6" opacity="0.4"/>
+    <rect x="282" y="224" width="90" height="5" rx="2.5" fill="#242ED6" opacity="0.2"/>
+    <rect x="346" y="196" width="18" height="18" rx="5" fill="#242ED6" opacity="0.2"/>
+    <rect x="350" y="200" width="10" height="3" rx="1.5" fill="#242ED6" opacity="0.5"/>
+    <rect x="350" y="205" width="7" height="3" rx="1.5" fill="#242ED6" opacity="0.4"/>
+    <rect x="350" y="210" width="8" height="3" rx="1.5" fill="#242ED6" opacity="0.3"/>
+    <!-- Input bar -->
+    <rect x="122" y="272" width="334" height="44" rx="10" fill="#fff" opacity="0.85"/>
+    <rect x="136" y="290" width="200" height="5" rx="2.5" fill="#374151" opacity="0.1"/>
+    <rect x="440" y="280" width="10" height="10" rx="3" fill="#242ED6" opacity="0.4"/>
+    <!-- Action chips -->
+    <rect x="136" y="305" width="52" height="8" rx="4" fill="#eceeff"/>
+    <rect x="194" y="305" width="52" height="8" rx="4" fill="#eceeff"/>
+    <rect x="252" y="305" width="52" height="8" rx="4" fill="#eceeff"/>
+    <!-- Model selector -->
+    <rect x="122" y="332" width="334" height="28" rx="8" fill="#fff" opacity="0.6"/>
+    <rect x="134" y="342" width="80" height="5" rx="2.5" fill="#242ED6" opacity="0.3"/>
+    <rect x="400" y="340" width="44" height="10" rx="5" fill="#eceeff"/>
+    <rect x="404" y="343" width="36" height="4" rx="2" fill="#242ED6" opacity="0.3"/>
+    <!-- Bottom label -->
+    <rect x="122" y="376" width="130" height="6" rx="3" fill="#374151" opacity="0.12"/>
+    <rect x="122" y="388" width="90" height="5" rx="2.5" fill="#374151" opacity="0.08"/>
+  </svg>`,
+
+  /* 1 – Problem: fragmented / broken workflow */
+  `<svg width="100%" height="100%" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+    <rect width="480" height="420" fill="#fff5f5"/>
+    <!-- Disconnected blocks -->
+    <!-- Chat block -->
+    <rect x="30" y="40" width="180" height="110" rx="12" fill="#fff" stroke="#fecaca" stroke-width="1.5"/>
+    <rect x="44" y="54" width="60" height="5" rx="2.5" fill="#374151" opacity="0.4"/>
+    <rect x="44" y="66" width="140" height="5" rx="2.5" fill="#374151" opacity="0.15"/>
+    <rect x="44" y="76" width="120" height="5" rx="2.5" fill="#374151" opacity="0.12"/>
+    <rect x="44" y="90" width="100" height="16" rx="8" fill="#fef2f2"/>
+    <rect x="50" y="96" width="60" height="4" rx="2" fill="#ef4444" opacity="0.3"/>
+    <rect x="44" y="114" width="130" height="5" rx="2.5" fill="#374151" opacity="0.1"/>
+    <rect x="44" y="124" width="80" height="5" rx="2.5" fill="#374151" opacity="0.08"/>
+    <rect x="40" y="136" width="52" height="6" rx="3" fill="#374151" opacity="0.07"/>
+    <text x="44" y="52" font-size="9" font-weight="700" fill="#374151" opacity="0.5" font-family="sans-serif">CHAT</text>
+    <!-- Broken connector -->
+    <line x1="210" y1="95" x2="240" y2="95" stroke="#fca5a5" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="220" y="88" font-size="14" fill="#ef4444" opacity="0.5" font-family="sans-serif">✕</text>
+    <!-- Action block -->
+    <rect x="260" y="40" width="190" height="110" rx="12" fill="#fff" stroke="#fecaca" stroke-width="1.5"/>
+    <text x="274" y="52" font-size="9" font-weight="700" fill="#374151" opacity="0.5" font-family="sans-serif">TASK TRACKER</text>
+    <rect x="274" y="62" width="160" height="20" rx="6" fill="#fef2f2"/>
+    <rect x="280" y="69" width="80" height="4" rx="2" fill="#ef4444" opacity="0.2"/>
+    <rect x="274" y="88" width="160" height="20" rx="6" fill="#fef2f2"/>
+    <rect x="280" y="95" width="60" height="4" rx="2" fill="#ef4444" opacity="0.2"/>
+    <rect x="274" y="114" width="160" height="20" rx="6" fill="#fef2f2"/>
+    <rect x="280" y="121" width="100" height="4" rx="2" fill="#ef4444" opacity="0.2"/>
+    <!-- AI block floating disconnected -->
+    <rect x="30" y="180" width="180" height="100" rx="12" fill="#fff" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="44" y="196" font-size="9" font-weight="700" fill="#374151" opacity="0.5" font-family="sans-serif">AI OUTPUT</text>
+    <rect x="44" y="204" width="140" height="5" rx="2.5" fill="#374151" opacity="0.15"/>
+    <rect x="44" y="214" width="110" height="5" rx="2.5" fill="#374151" opacity="0.12"/>
+    <rect x="44" y="224" width="130" height="5" rx="2.5" fill="#374151" opacity="0.1"/>
+    <rect x="44" y="242" width="100" height="16" rx="8" fill="#fff7ed"/>
+    <rect x="50" y="248" width="55" height="4" rx="2" fill="#f97316" opacity="0.35"/>
+    <rect x="44" y="264" width="70" height="5" rx="2.5" fill="#374151" opacity="0.08"/>
+    <!-- Context lost label -->
+    <rect x="260" y="180" width="190" height="100" rx="12" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text x="274" y="196" font-size="9" font-weight="700" fill="#ef4444" opacity="0.6" font-family="sans-serif">CONTEXT LOST</text>
+    <rect x="274" y="204" width="160" height="5" rx="2.5" fill="#ef4444" opacity="0.12"/>
+    <rect x="274" y="214" width="120" height="5" rx="2.5" fill="#ef4444" opacity="0.08"/>
+    <rect x="274" y="224" width="140" height="5" rx="2.5" fill="#ef4444" opacity="0.06"/>
+    <rect x="274" y="242" width="80" height="20" rx="6" fill="#fecaca" opacity="0.5"/>
+    <rect x="280" y="249" width="50" height="4" rx="2" fill="#ef4444" opacity="0.3"/>
+    <!-- Broken arrows -->
+    <line x1="120" y1="150" x2="120" y2="178" stroke="#fca5a5" stroke-width="2" stroke-dasharray="4 4"/>
+    <line x1="355" y1="150" x2="355" y2="178" stroke="#fca5a5" stroke-width="2" stroke-dasharray="4 4"/>
+    <line x1="210" y1="230" x2="258" y2="230" stroke="#fca5a5" stroke-width="2" stroke-dasharray="4 4"/>
+    <!-- Bottom row: overload indicators -->
+    <rect x="30" y="302" width="420" height="48" rx="10" fill="#fff" stroke="#fecaca" stroke-width="1"/>
+    <text x="44" y="316" font-size="8" font-weight="700" fill="#ef4444" opacity="0.5" font-family="sans-serif">COGNITIVE OVERLOAD</text>
+    <rect x="44" y="322" width="60" height="6" rx="3" fill="#fecaca" opacity="0.6"/>
+    <rect x="112" y="322" width="80" height="6" rx="3" fill="#fecaca" opacity="0.4"/>
+    <rect x="200" y="322" width="50" height="6" rx="3" fill="#fecaca" opacity="0.5"/>
+    <rect x="258" y="322" width="90" height="6" rx="3" fill="#fecaca" opacity="0.35"/>
+    <rect x="356" y="322" width="70" height="6" rx="3" fill="#fecaca" opacity="0.45"/>
+    <rect x="44" y="334" width="110" height="6" rx="3" fill="#fecaca" opacity="0.25"/>
+    <rect x="162" y="334" width="70" height="6" rx="3" fill="#fecaca" opacity="0.3"/>
+    <rect x="240" y="334" width="100" height="6" rx="3" fill="#fecaca" opacity="0.2"/>
+    <rect x="348" y="334" width="80" height="6" rx="3" fill="#fecaca" opacity="0.25"/>
+    <!-- Warning icon -->
+    <rect x="370" y="300" width="80" height="52" rx="10" fill="#fef2f2"/>
+    <text x="395" y="332" font-size="24" fill="#ef4444" opacity="0.4" font-family="sans-serif">!</text>
+  </svg>`,
+
+  /* 2 – Goals: unified execution layer */
+  `<svg width="100%" height="100%" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+    <rect width="480" height="420" fill="#eceeff"/>
+    <!-- Central hub -->
+    <circle cx="240" cy="180" r="52" fill="#242ED6" opacity="0.1"/>
+    <circle cx="240" cy="180" r="36" fill="#242ED6" opacity="0.15"/>
+    <circle cx="240" cy="180" r="20" fill="#242ED6"/>
+    <!-- Hub icon lines -->
+    <rect x="232" y="172" width="16" height="3" rx="1.5" fill="#fff"/>
+    <rect x="232" y="178" width="11" height="3" rx="1.5" fill="#fff" opacity="0.7"/>
+    <rect x="232" y="184" width="13" height="3" rx="1.5" fill="#fff" opacity="0.5"/>
+    <!-- Spokes -->
+    <line x1="240" y1="128" x2="240" y2="52" stroke="#242ED6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+    <line x1="205" y1="155" x2="118" y2="108" stroke="#242ED6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+    <line x1="205" y1="205" x2="118" y2="252" stroke="#242ED6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+    <line x1="240" y1="232" x2="240" y2="308" stroke="#242ED6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+    <line x1="275" y1="205" x2="362" y2="252" stroke="#242ED6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+    <line x1="275" y1="155" x2="362" y2="108" stroke="#242ED6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+    <!-- Node: Human -->
+    <rect x="196" y="18" width="88" height="34" rx="10" fill="#fff"/>
+    <circle cx="212" cy="35" r="8" fill="#eceeff"/>
+    <rect x="216" y="27" width="10" height="3" rx="1.5" fill="#374151" opacity="0.5"/>
+    <rect x="216" y="33" width="14" height="3" rx="1.5" fill="#374151" opacity="0.3"/>
+    <rect x="216" y="39" width="10" height="3" rx="1.5" fill="#374151" opacity="0.2"/>
+    <rect x="232" y="31" width="40" height="5" rx="2.5" fill="#374151" opacity="0.3"/>
+    <rect x="232" y="39" width="28" height="4" rx="2" fill="#374151" opacity="0.15"/>
+    <!-- Node: AI Agent -->
+    <rect x="62" y="78" width="88" height="34" rx="10" fill="#fff"/>
+    <rect x="68" y="84" width="22" height="22" rx="6" fill="#242ED6" opacity="0.15"/>
+    <rect x="72" y="89" width="14" height="3" rx="1.5" fill="#242ED6" opacity="0.5"/>
+    <rect x="72" y="95" width="10" height="3" rx="1.5" fill="#242ED6" opacity="0.4"/>
+    <rect x="72" y="101" width="12" height="3" rx="1.5" fill="#242ED6" opacity="0.3"/>
+    <rect x="96" y="87" width="48" height="5" rx="2.5" fill="#374151" opacity="0.3"/>
+    <rect x="96" y="95" width="36" height="4" rx="2" fill="#374151" opacity="0.15"/>
+    <!-- Node: Data -->
+    <rect x="62" y="222" width="88" height="34" rx="10" fill="#fff"/>
+    <rect x="68" y="228" width="22" height="22" rx="6" fill="#059669" opacity="0.12"/>
+    <rect x="72" y="233" width="14" height="3" rx="1.5" fill="#059669" opacity="0.4"/>
+    <rect x="72" y="239" width="10" height="3" rx="1.5" fill="#059669" opacity="0.35"/>
+    <rect x="72" y="245" width="12" height="3" rx="1.5" fill="#059669" opacity="0.25"/>
+    <rect x="96" y="231" width="48" height="5" rx="2.5" fill="#374151" opacity="0.3"/>
+    <rect x="96" y="239" width="36" height="4" rx="2" fill="#374151" opacity="0.15"/>
+    <!-- Node: Workflow -->
+    <rect x="196" y="302" width="88" height="34" rx="10" fill="#fff"/>
+    <rect x="202" y="308" width="22" height="22" rx="6" fill="#F59E0B" opacity="0.15"/>
+    <rect x="206" y="313" width="14" height="3" rx="1.5" fill="#F59E0B" opacity="0.5"/>
+    <rect x="206" y="319" width="10" height="3" rx="1.5" fill="#F59E0B" opacity="0.4"/>
+    <rect x="206" y="325" width="12" height="3" rx="1.5" fill="#F59E0B" opacity="0.3"/>
+    <rect x="230" y="311" width="48" height="5" rx="2.5" fill="#374151" opacity="0.3"/>
+    <rect x="230" y="319" width="36" height="4" rx="2" fill="#374151" opacity="0.15"/>
+    <!-- Node: System -->
+    <rect x="330" y="222" width="88" height="34" rx="10" fill="#fff"/>
+    <rect x="336" y="228" width="22" height="22" rx="6" fill="#8b5cf6" opacity="0.12"/>
+    <rect x="340" y="233" width="14" height="3" rx="1.5" fill="#8b5cf6" opacity="0.4"/>
+    <rect x="340" y="239" width="10" height="3" rx="1.5" fill="#8b5cf6" opacity="0.35"/>
+    <rect x="340" y="245" width="12" height="3" rx="1.5" fill="#8b5cf6" opacity="0.25"/>
+    <rect x="364" y="231" width="48" height="5" rx="2.5" fill="#374151" opacity="0.3"/>
+    <rect x="364" y="239" width="36" height="4" rx="2" fill="#374151" opacity="0.15"/>
+    <!-- Node: Governance -->
+    <rect x="330" y="78" width="88" height="34" rx="10" fill="#fff"/>
+    <rect x="336" y="84" width="22" height="22" rx="6" fill="#ef4444" opacity="0.1"/>
+    <rect x="340" y="89" width="14" height="3" rx="1.5" fill="#ef4444" opacity="0.35"/>
+    <rect x="340" y="95" width="10" height="3" rx="1.5" fill="#ef4444" opacity="0.3"/>
+    <rect x="340" y="101" width="12" height="3" rx="1.5" fill="#ef4444" opacity="0.25"/>
+    <rect x="364" y="87" width="48" height="5" rx="2.5" fill="#374151" opacity="0.3"/>
+    <rect x="364" y="95" width="36" height="4" rx="2" fill="#374151" opacity="0.15"/>
+    <!-- Principle pills at bottom -->
+    <rect x="30" y="370" width="120" height="20" rx="10" fill="#fff" opacity="0.7"/>
+    <rect x="36" y="377" width="80" height="5" rx="2.5" fill="#242ED6" opacity="0.35"/>
+    <rect x="168" y="370" width="144" height="20" rx="10" fill="#fff" opacity="0.7"/>
+    <rect x="174" y="377" width="100" height="5" rx="2.5" fill="#242ED6" opacity="0.35"/>
+    <rect x="330" y="370" width="120" height="20" rx="10" fill="#fff" opacity="0.7"/>
+    <rect x="336" y="377" width="80" height="5" rx="2.5" fill="#242ED6" opacity="0.35"/>
+  </svg>`,
+
+  /* 3 – Impact: outcome metrics */
+  `<svg width="100%" height="100%" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+    <rect width="480" height="420" fill="#eceeff"/>
+    <!-- Stat cards row 1 -->
+    <rect x="24" y="24" width="130" height="90" rx="12" fill="#fff"/>
+    <rect x="36" y="36" width="28" height="28" rx="8" fill="#eceeff"/>
+    <rect x="40" y="42" width="20" height="4" rx="2" fill="#242ED6" opacity="0.4"/>
+    <rect x="40" y="49" width="14" height="4" rx="2" fill="#242ED6" opacity="0.3"/>
+    <rect x="40" y="56" width="17" height="4" rx="2" fill="#242ED6" opacity="0.25"/>
+    <rect x="36" y="72" width="100" height="14" rx="4" fill="#eceeff"/>
+    <rect x="36" y="72" width="70" height="14" rx="4" fill="#242ED6" opacity="0.2"/>
+    <rect x="36" y="92" width="90" height="5" rx="2.5" fill="#374151" opacity="0.15"/>
+    <rect x="36" y="100" width="64" height="5" rx="2.5" fill="#374151" opacity="0.1"/>
+
+    <rect x="168" y="24" width="130" height="90" rx="12" fill="#fff"/>
+    <rect x="180" y="36" width="28" height="28" rx="8" fill="#e6f9f0"/>
+    <rect x="184" y="42" width="20" height="4" rx="2" fill="#059669" opacity="0.4"/>
+    <rect x="184" y="49" width="14" height="4" rx="2" fill="#059669" opacity="0.3"/>
+    <rect x="184" y="56" width="17" height="4" rx="2" fill="#059669" opacity="0.25"/>
+    <rect x="180" y="72" width="100" height="14" rx="4" fill="#e6f9f0"/>
+    <rect x="180" y="72" width="85" height="14" rx="4" fill="#059669" opacity="0.2"/>
+    <rect x="180" y="92" width="90" height="5" rx="2.5" fill="#374151" opacity="0.15"/>
+    <rect x="180" y="100" width="64" height="5" rx="2.5" fill="#374151" opacity="0.1"/>
+
+    <rect x="312" y="24" width="144" height="90" rx="12" fill="#fff"/>
+    <rect x="324" y="36" width="28" height="28" rx="8" fill="#fff7ed"/>
+    <rect x="328" y="42" width="20" height="4" rx="2" fill="#F59E0B" opacity="0.4"/>
+    <rect x="328" y="49" width="14" height="4" rx="2" fill="#F59E0B" opacity="0.3"/>
+    <rect x="328" y="56" width="17" height="4" rx="2" fill="#F59E0B" opacity="0.25"/>
+    <rect x="324" y="72" width="110" height="14" rx="4" fill="#fff7ed"/>
+    <rect x="324" y="72" width="90" height="14" rx="4" fill="#F59E0B" opacity="0.2"/>
+    <rect x="324" y="92" width="90" height="5" rx="2.5" fill="#374151" opacity="0.15"/>
+    <rect x="324" y="100" width="64" height="5" rx="2.5" fill="#374151" opacity="0.1"/>
+
+    <!-- Chart area -->
+    <rect x="24" y="130" width="432" height="150" rx="12" fill="#fff"/>
+    <!-- Chart bars -->
+    <rect x="48" y="200" width="28" height="60" rx="4" fill="#eceeff"/>
+    <rect x="48" y="220" width="28" height="40" rx="4" fill="#242ED6" opacity="0.25"/>
+    <rect x="92" y="180" width="28" height="80" rx="4" fill="#eceeff"/>
+    <rect x="92" y="195" width="28" height="65" rx="4" fill="#242ED6" opacity="0.3"/>
+    <rect x="136" y="170" width="28" height="90" rx="4" fill="#eceeff"/>
+    <rect x="136" y="180" width="28" height="80" rx="4" fill="#242ED6" opacity="0.35"/>
+    <rect x="180" y="155" width="28" height="105" rx="4" fill="#eceeff"/>
+    <rect x="180" y="162" width="28" height="98" rx="4" fill="#242ED6" opacity="0.4"/>
+    <rect x="224" y="145" width="28" height="115" rx="4" fill="#eceeff"/>
+    <rect x="224" y="150" width="28" height="110" rx="4" fill="#242ED6" opacity="0.5"/>
+    <rect x="268" y="135" width="28" height="125" rx="4" fill="#eceeff"/>
+    <rect x="268" y="138" width="28" height="122" rx="4" fill="#242ED6" opacity="0.6"/>
+    <rect x="312" y="150" width="28" height="110" rx="4" fill="#eceeff"/>
+    <rect x="312" y="152" width="28" height="108" rx="4" fill="#242ED6" opacity="0.55"/>
+    <rect x="356" y="140" width="28" height="120" rx="4" fill="#eceeff"/>
+    <rect x="356" y="142" width="28" height="118" rx="4" fill="#242ED6" opacity="0.65"/>
+    <rect x="400" y="130" width="28" height="130" rx="4" fill="#eceeff"/>
+    <rect x="400" y="132" width="28" height="128" rx="4" fill="#242ED6" opacity="0.7"/>
+    <!-- Chart baseline -->
+    <line x1="36" y1="260" x2="444" y2="260" stroke="#e5e7eb" stroke-width="1"/>
+    <line x1="36" y1="220" x2="444" y2="220" stroke="#e5e7eb" stroke-width="1" opacity="0.5"/>
+    <line x1="36" y1="180" x2="444" y2="180" stroke="#e5e7eb" stroke-width="1" opacity="0.5"/>
+    <line x1="36" y1="145" x2="444" y2="145" stroke="#e5e7eb" stroke-width="1" opacity="0.5"/>
+
+    <!-- Impact tags row -->
+    <rect x="24" y="296" width="432" height="48" rx="12" fill="#fff"/>
+    <rect x="36" y="308" width="90" height="24" rx="8" fill="#eceeff"/>
+    <rect x="42" y="317" width="60" height="5" rx="2.5" fill="#242ED6" opacity="0.4"/>
+    <rect x="140" y="308" width="90" height="24" rx="8" fill="#e6f9f0"/>
+    <rect x="146" y="317" width="60" height="5" rx="2.5" fill="#059669" opacity="0.4"/>
+    <rect x="244" y="308" width="90" height="24" rx="8" fill="#fff7ed"/>
+    <rect x="250" y="317" width="60" height="5" rx="2.5" fill="#F59E0B" opacity="0.4"/>
+    <rect x="348" y="308" width="96" height="24" rx="8" fill="#f5f3ff"/>
+    <rect x="354" y="317" width="60" height="5" rx="2.5" fill="#8b5cf6" opacity="0.4"/>
+
+    <!-- Bottom collaboration row -->
+    <rect x="24" y="358" width="210" height="40" rx="10" fill="#fff"/>
+    <circle cx="44" cy="378" r="10" fill="#eceeff"/>
+    <circle cx="58" cy="378" r="10" fill="#242ED6" opacity="0.2"/>
+    <circle cx="72" cy="378" r="10" fill="#e6f9f0"/>
+    <rect x="88" y="371" width="110" height="5" rx="2.5" fill="#374151" opacity="0.25"/>
+    <rect x="88" y="381" width="80" height="4" rx="2" fill="#374151" opacity="0.15"/>
+    <rect x="246" y="358" width="210" height="40" rx="10" fill="#fff"/>
+    <rect x="258" y="368" width="80" height="6" rx="3" fill="#374151" opacity="0.15"/>
+    <rect x="258" y="378" width="120" height="6" rx="3" fill="#242ED6" opacity="0.2"/>
+    <rect x="390" y="368" width="52" height="22" rx="8" fill="#242ED6" opacity="0.1"/>
+    <rect x="396" y="375" width="40" height="5" rx="2.5" fill="#242ED6" opacity="0.3"/>
+  </svg>`,
+];
 const CH_CONTENT = [
   { key:'overview', title:'The conversational layer of xnode AI', desc:'A collaboration layer that gets work done',
     body:`<div class="cx-rt">A collaboration layer that gets work done</div>
@@ -577,7 +883,7 @@ function chRender(i) {
       <div class="cx-panel-desc">${t.desc}</div>
     </div>`;
   document.getElementById('ch-panel-content').innerHTML = t.body;
-  document.getElementById('ch-panel-img').innerHTML = `<img src="${CH_TAB_IMAGES[i]}" alt="${t.title}" style="width:100%;height:100%;object-fit:cover;display:block;" />`;
+  document.getElementById('ch-panel-img').innerHTML = CH_TAB_SVGS[i];
 }
 function chTab(i) {
   cancelAnimationFrame(ch_rf);
