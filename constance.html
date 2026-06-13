@@ -171,6 +171,30 @@
     @media (max-width: 480px) {
       #cn-intro { padding: 0 16px 32px; }
     }
+
+    /* ══════════════════════════════════════════
+       STATEMENT — SECTION 4
+    ══════════════════════════════════════════ */
+    #cn-statement {
+      background: #ECE6DD;
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    #cn-statement p {
+      font-size: 17px;
+      color: #006466;
+      line-height: 1.8;
+      max-width: 600px;
+      letter-spacing: -0.01em;
+      font-weight: 500;
+    }
+    @media (max-width: 768px) { #cn-statement { padding: 64px 32px; } }
+    @media (max-width: 480px) { #cn-statement { padding: 48px 20px; } #cn-statement p { font-size: 15px; } }
   </style>
 </head>
 <body>
@@ -302,6 +326,14 @@
     <div class="marquee-item"><span class="diamond"></span>Treatment Recommendations</div>
   </div>
 </div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 4 — PROJECT STATEMENT
+════════════════════════════════════════════════════ -->
+<section id="cn-statement">
+  <p>An AI-powered clinical decision support platform that analyzes patient risk, delivers explainable peri-operative insights, and guides evidence-based care decisions — helping clinicians improve outcomes with confidence.</p>
+</section>
 
 <script>
 // ── Menu toggle ──
