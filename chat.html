@@ -73,9 +73,9 @@
     .cx-panel-title{font-size:18px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.1;}
     .cx-panel-desc{font-size:12px;color:var(--ink-2);margin-top:2px;}
     .cx-tab-panel-body{display:grid;grid-template-columns:1fr 1fr;min-height:420px;height:auto;}
-    .cx-tab-panel-left{border-right:1px solid var(--border);overflow:hidden;}
-    .cx-tab-panel-left img{width:100%;height:100%;object-fit:cover;display:block;}
-    .cx-tab-panel-right{padding:28px;overflow-y:auto;}
+    .cx-tab-panel-left{border-right:1px solid var(--border);background:var(--blue-soft);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+    .cx-tab-panel-left img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+    .cx-tab-panel-right{padding:28px;display:flex;flex-direction:column;gap:10px;overflow:visible;font-size:13px;color:var(--ink-2);}
     .cx-rt{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.3;}
     .cx-rb{font-size:13px;color:var(--ink-2);line-height:1.75;margin-bottom:10px;}
     .cx-buls{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
