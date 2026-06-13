@@ -112,98 +112,24 @@
     }
 
     /* ══════════════════════════════════════════
-       HERO — SECTION 1
+       HERO — SECTION 1 (mirrors cortx hero)
     ══════════════════════════════════════════ */
-    #cn-hero {
-      background: #fff;
-      padding: 80px 40px 56px;
-      max-width: 960px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
+    #cn-hero { background: #fff; padding: 0; width: 100%; box-sizing: border-box; }
+    #cn-hero .cx-container { padding-top: 28px; padding-bottom: 0; }
 
-    /* Back button */
-    .cn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink);
-      opacity: 0.5;
-      text-decoration: none;
-      margin-bottom: 28px;
-      transition: opacity 0.2s;
-    }
-    .cn-back:hover { opacity: 1; }
+    /* Teal overrides for shared cortx classes */
+    #cn-hero .cx-blue { color: var(--cn-teal); }
+    #cn-hero .cx-ml svg { stroke: var(--cn-teal); }
 
-    /* Project label */
-    .cn-project-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-2);
-      margin-bottom: 12px;
-    }
-    .cn-project-label span {
-      color: var(--cn-teal);
-      font-weight: 600;
-    }
-
-    /* Hero heading */
-    .cn-hero-heading {
-      font-size: clamp(22px, 3.8vw, 48px);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-      color: var(--ink);
-      margin-bottom: 32px;
-    }
-    .cn-hero-heading .cn-accent { color: var(--cn-teal); }
-
-    /* Meta row */
-    .cn-meta-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--border);
-    }
-
-    .cn-meta-item {
-      padding: 20px 24px;
-      border-right: 1px solid var(--border);
-    }
-    .cn-meta-item:last-child { border-right: none; }
-
-    .cn-meta-label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--cn-teal);
-      margin-bottom: 6px;
-    }
-    .cn-meta-label i { font-size: 14px; }
-
-    .cn-meta-value {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-2);
-      line-height: 1.4;
-    }
-
-    /* ── Responsive ── */
     @media (max-width: 768px) {
-      #cn-hero { padding: 72px 24px 40px; }
-      .cn-meta-row { grid-template-columns: repeat(2, 1fr); }
-      .cn-meta-item:nth-child(2) { border-right: none; }
-      .cn-meta-item:nth-child(3) { border-top: 1px solid var(--border); }
-      .cn-meta-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      #cn-hero .cx-container { padding: 24px 24px 0; }
+      .cx-meta { grid-template-columns: 1fr 1fr; }
+      .cx-mc:nth-child(2) { border-right: none; }
+      .cx-mc:nth-child(3) { border-top: 1px solid var(--border); }
+      .cx-mc:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
     }
     @media (max-width: 480px) {
-      #cn-hero { padding: 64px 20px 32px; }
-      .cn-hero-heading { font-size: clamp(24px, 8vw, 36px); margin-bottom: 32px; }
-      .cn-meta-row { grid-template-columns: 1fr 1fr; }
-      .cn-meta-item { padding: 16px; }
+      #cn-hero .cx-container { padding: 20px 16px 0; }
     }
 
     /* ══════════════════════════════════════════
@@ -706,43 +632,48 @@
      SECTION 1 — HERO
 ════════════════════════════════════════════════════ -->
 <section id="cn-hero">
+  <div class="cx-container">
 
-  <a href="home.html" class="cn-back">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back
-  </a>
+    <a href="home.html" class="cx-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </a>
 
-  <p class="cn-project-label"><span>Constance</span> | 2022 – 2023</p>
+    <div class="cx-eyebrow"><span>Constance | 2022 – 2023</span></div>
 
-  <h1 class="cn-hero-heading">
-    Designing <span class="cn-accent">AI – Risk Prediction</span> for Healthcare Teams
-  </h1>
+    <h1 class="cx-h1">Designing <span class="cx-blue">AI – Risk Prediction</span> for Healthcare Teams</h1>
 
-  <div class="cn-meta-row">
-    <div class="cn-meta-item">
-      <div class="cn-meta-label">
-        <i class="ti ti-briefcase"></i> Role
+    <div class="cx-meta">
+      <div class="cx-mc">
+        <div class="cx-ml">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          Role
+        </div>
+        <div class="cx-mv">Product Designer</div>
       </div>
-      <div class="cn-meta-value">Product Designer</div>
-    </div>
-    <div class="cn-meta-item">
-      <div class="cn-meta-label">
-        <i class="ti ti-device-desktop"></i> Platform
+      <div class="cx-mc">
+        <div class="cx-ml">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="11" rx="1"/><path d="M8 19h8m-4-4v4"/><rect x="16" y="9" width="6" height="10" rx="1"/></svg>
+          Platform
+        </div>
+        <div class="cx-mv">Web | Mobile | Tab</div>
       </div>
-      <div class="cn-meta-value">Web | Mobile | Tab</div>
-    </div>
-    <div class="cn-meta-item">
-      <div class="cn-meta-label">
-        <i class="ti ti-building-hospital"></i> Industry
+      <div class="cx-mc">
+        <div class="cx-ml">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M9 21v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4"/></svg>
+          Industry
+        </div>
+        <div class="cx-mv">Healthcare, AI</div>
       </div>
-      <div class="cn-meta-value">Healthcare, AI</div>
-    </div>
-    <div class="cn-meta-item">
-      <div class="cn-meta-label">
-        <i class="ti ti-vector-triangle"></i> Scope
+      <div class="cx-mc">
+        <div class="cx-ml">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M8 12h8M11 18h2"/></svg>
+          Scope
+        </div>
+        <div class="cx-mv">Product Design 0–1</div>
       </div>
-      <div class="cn-meta-value">Product Design 0–1</div>
     </div>
+
   </div>
 
 </section>
