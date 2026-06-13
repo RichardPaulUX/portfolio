@@ -7,37 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
 <style>
 /* ════════════════════════════════════════
    SHARED / HOME STYLES
 ════════════════════════════════════════ */
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --ink: #0F3547;
-    --ink-2: #474A55;
-    --ink-3: #474A55;
-    --paper: #ffffff;
-    --paper-2: #f0ede8;
-    --blue: #2651FF;
-    --blue-soft: #e8edff;
-    --green-soft: #e6f4ec;
-    --green: #1a9a4a;
-    --dark: #0a0c10;
-    --dark-2: #13161e;
-    --border: rgba(0,0,0,0.08);
-    --r: 12px;
-    --r-lg: 20px;
-  }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Manrope', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    }
 
   /* ─── LOADER ─── */
   #loader {
@@ -422,46 +398,6 @@
     50% { opacity:0; transform: translate(-50%,-50%) translateY(4px); }
   }
 
-  /* ─── MARQUEE ─── */
-  .marquee-section {
-    width: 100%;
-    overflow: hidden;
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-top: 60px;
-  }
-
-  .marquee-track {
-    display: flex;
-    gap: 0;
-    animation: marquee 28s linear infinite;
-    white-space: nowrap;
-  }
-
-  .marquee-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 32px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink-2);
-    letter-spacing: 0.02em;
-    border-right: 1px solid var(--border);
-  }
-  .marquee-item .diamond {
-    width: 5px; height: 5px;
-    background: var(--ink-3);
-    transform: rotate(45deg);
-    flex-shrink: 0;
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
   /* ─── WORK SECTION ─── */
   #work {
     padding: 48px 40px;
@@ -475,26 +411,6 @@
     align-items: center;
     margin-bottom: 40px;
     gap: 12px;
-  }
-
-  .work-eyebrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #f0eeff;
-    color: #6b5ce7;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 100px;
-  }
-
-  .work-heading {
-    font-size: clamp(16px, 2vw, 20px);
-    font-weight: 600;
-    color: #0F3547;
-    text-align: center;
-    letter-spacing: -0.01em;
   }
 
   .project-card {
@@ -908,16 +824,6 @@
   }
 
   .contact-left {}
-
-  .cta-heading {
-    font-family: 'Manrope', sans-serif;
-    font-size: clamp(26px, 3.5vw, 36px);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
 
   .cta-sub {
     font-size: 14px;
@@ -1346,12 +1252,8 @@
     .hero-currently { justify-content: center; }
 
     /* Marquee */
-    .marquee-section { padding: 20px 0; }
-    .marquee-item { padding: 0 20px; font-size: 12px; }
-
     /* Work */
     #work { padding: 40px 20px; }
-    .work-heading { font-size: 16px; }
     .project-card {
       grid-template-columns: 1fr;
     }
@@ -1373,15 +1275,6 @@
       gap: 32px;
     }
     .contact-photo { width: 200px; margin: 0 auto; }
-    .cta-heading { font-size: 24px; }
-    .footer-bottom { font-size: 10px; }
-
-    /* Menu */
-    #menu-panel { width: 92vw; padding: 28px 28px 0; }
-    .menu-name { font-size: 18px; }
-    .menu-link { font-size: 20px; }
-    .menu-right { width: 120px; }
-
     /* Case study */
     .project-hero { padding: 60px 20px 32px; }
     .case-study-body { padding: 0 20px 48px; }
@@ -1407,141 +1300,6 @@
 
 
 
-  /* ─── MENU OVERLAY ─── */
-  #menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 53, 71, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: 198;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  #menu-overlay.open { opacity: 1; visibility: visible; }
-
-  #menu-panel {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: min(480px, 90vw);
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.15);
-    z-index: 199;
-    padding: 40px 40px 0 40px;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    transform: translateY(-10px);
-  }
-  #menu-panel.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .menu-inner {
-    position: relative;
-    padding-right: 145px;
-  }
-
-  .menu-left { width: 100%; }
-
-  .menu-name {
-    font-size: 22px;
-    font-weight: 700;
-    color: #0F3547;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 28px;
-  }
-
-  .menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .menu-link {
-    font-size: 24px;
-    font-weight: 700;
-    color: rgba(15,53,71,0.25);
-    text-decoration: none;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    transition: color 0.2s;
-    letter-spacing: -0.02em;
-    display: block;
-  }
-  .menu-link:last-child { border-bottom: none; }
-  .menu-link.active { color: #0F3547; }
-  .menu-link:hover { color: #0F3547; }
-
-  .menu-right {
-    position: absolute;
-    right: -20px;
-    bottom: -40px;
-    width: 160px;
-  }
-  .menu-right img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .menu-footer {
-    margin-top: 24px;
-    padding: 20px 0 28px;
-    border-top: 1px solid rgba(0,0,0,0.07);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .menu-email-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 12px;
-    color: #474A55;
-    cursor: pointer;
-    flex: 1;
-    min-width: 0;
-  }
-  .menu-email-box span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .menu-email-box svg { flex-shrink: 0; width: 14px; height: 14px; color: #474A55; }
-
-  .menu-socials {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-  }
-  .menu-socials a {
-    color: #474A55;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .menu-socials a:hover { color: #0F3547; }
-  .menu-socials svg { width: 18px; height: 18px; display: block; }
-
-  /* Hamburger active state */
-  .nav-menu span { transition: transform 0.25s ease, opacity 0.25s ease; transform-origin: center; }
-  .nav-menu.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-  .nav-menu.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .nav-menu.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 
 
@@ -1559,31 +1317,9 @@
 
 
 
-.nav-typed{display:inline;}
-
-50%{opacity:0;}}
 
 
 
-
-
-15%{transform:rotate(14deg);}30%{transform:rotate(-8deg);}45%{transform:rotate(14deg);}60%{transform:rotate(-4deg);}}
-
-
-/* MENU OVERLAY */
-
-
-#menu-panel{position:fixed;top:72px;left:0;right:0;margin:0 auto;width:min(480px,90vw);background:white;border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,0.15);z-index:199;padding:40px 40px 0;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s;transform:translateY(-10px);}
-#menu-panel.open{opacity:1;visibility:visible;transform:translateY(0);}
-.menu-inner{position:relative;padding-right:145px;}
-.menu-left{width:100%;}
-.menu-name{font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-0.02em;line-height:1.2;margin-bottom:28px;}
-
-.menu-link{font-size:24px;font-weight:700;color:rgba(15,53,71,0.25);text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);transition:color .2s;letter-spacing:-0.02em;display:block;}
-.menu-link:last-child{border-bottom:none;}
-.menu-link.active,.menu-link:hover{color:var(--ink);}
-.menu-right{position:absolute;right:-20px;bottom:-40px;width:160px;pointer-events:none;}
-.menu-right img{width:100%;height:auto;display:block;}
 
 
 
@@ -1669,6 +1405,8 @@
 .social-btn svg{width:15px;height:15px;}
 
 @media(max-width:768px){
+  body{overflow-x:hidden;}
+  .page-wrap{padding:40px 20px;}
   .profile-top{flex-direction:column;}
   .profile-btns{width:100%;}
   .btn-primary,.btn-secondary{flex:1;justify-content:center;}
@@ -1682,7 +1420,7 @@
 }
 
 /* SERVICES */
-.services-section{margin-bottom:12px;}
+.services-section{ padding: 80px 40px; }
 .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .service-card{
   background:white;border:1px solid var(--border);
@@ -1703,39 +1441,26 @@
 }
 .service-desc{font-size:13px;color:var(--ink-2);line-height:1.65;}
 @media(max-width:640px){.services-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  body{overflow-x:hidden;}
+  .page-wrap{padding:32px 16px;}
+  .profile-name{font-size:16px;}
+  .about-card{padding:20px 16px;}
+  .services-grid{grid-template-columns:1fr;}
+  .principles-grid{grid-template-columns:1fr;}
+  .profile-btns{flex-direction:column;}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;}
+}
 
 /* PRINCIPLES */
 .principles-section{
-  margin-bottom:12px;
+  padding: 80px 40px;
 }
 .principles-header{
   display:flex;
   flex-direction:column;
   align-items:center;
   margin-bottom:20px;
-}
-.principles-eyebrow{
-  display:inline-flex;
-  margin-left:auto;
-  margin-right:auto;
-  align-items:center;
-  gap:6px;
-  background:#f0eeff;
-  color:#6b5ce7;
-  font-size:12px;
-  font-weight:600;
-  padding:5px 12px;
-  border-radius:100px;
-  margin-bottom:14px;
-}
-.principles-heading{
-  font-size:clamp(18px,2.5vw,24px);
-  font-weight:700;
-  color:var(--ink);
-  letter-spacing:-0.02em;
-  margin-bottom:20px;
-  line-height:1.2;
-  text-align:center;
 }
 .principles-grid{
   display:grid;
@@ -1786,6 +1511,8 @@
 @media(max-width:640px){
   .principles-grid{grid-template-columns:1fr;}
 }
+
+.principles-heading{ margin-bottom:20px; }
 
 /* TLDR */
 .about-tldr{cursor:pointer;font-size:12px;font-weight:600;color:var(--ink-2);opacity:0.5;padding:4px 10px;border:1px solid var(--border);border-radius:100px;transition:all .2s;user-select:none;}
@@ -2075,11 +1802,11 @@
   <!-- DESIGN PRINCIPLES -->
   <div class="principles-section">
     <div class="principles-header">
-      <div class="principles-eyebrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <div class="section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         Design Approach
       </div>
-      <h2 class="principles-heading">Principles. What guides my design decisions</h2>
+      <h2 class="section-heading">Principles. What guides my design decisions</h2>
     </div>
     <div class="principles-grid">
       <div class="principle-card">
@@ -2130,11 +1857,11 @@
   <!-- SERVICES SECTION -->
   <div class="services-section">
     <div class="principles-header">
-    <div class="principles-eyebrow">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+    <div class="section-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
       How can I help you
     </div>
-    <h2 class="principles-heading">Skills I bring to every engagement</h2>
+    <h2 class="section-heading">Skills I bring to every engagement</h2>
     </div>
     <div class="services-grid">
       <div class="service-card">
