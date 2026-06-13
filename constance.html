@@ -195,6 +195,376 @@
     }
     @media (max-width: 768px) { #cn-statement { padding: 64px 32px; } }
     @media (max-width: 480px) { #cn-statement { padding: 48px 20px; } #cn-statement p { font-size: 15px; } }
+
+    /* ══════════════════════════════════════════
+       ABOUT PROJECT TABS — SECTION 5
+    ══════════════════════════════════════════ */
+    #cn-about {
+      padding: 80px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Tab strip */
+    .cn-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: var(--paper-2);
+    }
+    .cn-tab {
+      padding: 14px 16px 12px;
+      cursor: pointer;
+      border-right: 1px solid var(--border);
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .cn-tab:last-child { border-right: none; }
+    .cn-tab-on { background: var(--paper-2); }
+    .cn-tab-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+    .cn-tab-name {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-2);
+      flex: 1;
+      min-width: 0;
+    }
+    .cn-tab-name svg { stroke: var(--ink-2); flex-shrink: 0; }
+    .cn-tab-on .cn-tab-name { color: var(--ink); }
+    .cn-tab-on .cn-tab-name svg { stroke: var(--cn-teal); }
+    .cn-tab-sub {
+      font-size: 11px;
+      color: var(--ink-2);
+      line-height: 1.5;
+      opacity: 0.65;
+      padding-bottom: 10px;
+    }
+    .cn-tab-pause {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--ink-2);
+      font-size: 9px;
+      margin-top: 1px;
+      margin-left: auto;
+    }
+    .cn-tab-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+    }
+    .cn-tab-prog {
+      height: 2px;
+      background: var(--cn-teal);
+      width: 0%;
+      transition: width 0.05s linear;
+    }
+
+    /* Tab panel */
+    .cn-tab-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      background: #fff;
+    }
+    .cn-tab-panel-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cn-panel-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--cn-light);
+      border: 1.5px solid rgba(0,100,102,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cn-panel-icon svg { stroke: var(--cn-teal); width: 20px; height: 20px; }
+    .cn-panel-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .cn-panel-desc { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+    .cn-tab-panel-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 420px;
+    }
+    .cn-tab-panel-left {
+      border-right: 1px solid var(--border);
+      background: var(--cn-light);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .cn-tab-panel-left img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .cn-tab-panel-right {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.7;
+      height: 420px;
+      box-sizing: border-box;
+    }
+
+    /* Content helpers */
+    .cn-rt { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .cn-rb { font-size: 13px; color: var(--ink-2); line-height: 1.7; }
+    .cn-buls { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .cn-bul { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .cn-bul i { font-size: 16px; color: var(--cn-teal); margin-top: 1px; flex-shrink: 0; }
+    .cn-bul strong { color: var(--ink); font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #cn-about { padding: 64px 24px; }
+      .cn-tabs { grid-template-columns: 1fr 1fr 1fr; }
+      .cn-tab-sub { display: none; }
+      .cn-tab-panel-body { grid-template-columns: 1fr; height: auto; }
+      .cn-tab-panel-left { display: none; }
+      .cn-tab-panel-right { height: auto; min-height: 300px; padding: 20px; }
+    }
+    @media (max-width: 480px) {
+      #cn-about { padding: 48px 16px; }
+    }
+
+    /* ══════════════════════════════════════════
+       HEY THERE — SECTION 6
+    ══════════════════════════════════════════ */
+    #cn-hey {
+      background: #ECE6DD;
+      padding: 64px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .cn-hey-avatar {
+      flex-shrink: 0;
+      width: 180px;
+    }
+    .cn-hey-avatar img {
+      width: 180px;
+      display: block;
+    }
+    .cn-hey-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 560px;
+    }
+    .cn-hey-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+    .cn-hey-title .cn-hey-wave {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-2);
+      margin-bottom: 6px;
+    }
+    .cn-hey-desc {
+      font-size: 14px;
+      color: var(--ink-2);
+      line-height: 1.75;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      #cn-hey { flex-direction: column; gap: 28px; padding: 48px 28px; text-align: center; }
+      .cn-hey-avatar { width: 140px; }
+      .cn-hey-avatar img { width: 140px; }
+    }
+    @media (max-width: 480px) {
+      #cn-hey { padding: 40px 20px; }
+      .cn-hey-title { font-size: 17px; }
+    }
+
+    /* ══════════════════════════════════════════
+       HOW IT WORKS — SECTION 7
+    ══════════════════════════════════════════ */
+    #cn-hiw {
+      background: #f4f6fb;
+      padding: 80px 40px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .cn-hiw-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .cn-hiw-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    @media (max-width: 768px) {
+      #cn-hiw { padding: 64px 24px; }
+    }
+    @media (max-width: 480px) {
+      #cn-hiw { padding: 48px 16px; }
+      .cn-hiw-heading { font-size: 18px; }
+    }
+
+    /* ══════════════════════════════════════════
+       UI SNIPPETS — SECTION 8
+    ══════════════════════════════════════════ */
+    #cn-ui {
+      background: var(--cn-bg);
+      padding: 80px 40px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .cn-ui-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .cn-ui-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cn-ui-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,100,102,0.06);
+    }
+    .cn-ui-card.cn-ui-full {
+      grid-column: 1 / -1;
+    }
+    .cn-ui-card img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      #cn-ui { padding: 64px 24px; }
+      .cn-ui-grid { grid-template-columns: 1fr; }
+      .cn-ui-card.cn-ui-full { grid-column: 1; }
+    }
+    @media (max-width: 480px) {
+      #cn-ui { padding: 48px 16px; }
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER / WRAP — SECTION 9
+    ══════════════════════════════════════════ */
+    #cn-footer {
+      background: #ECE6DD;
+      padding: 80px 40px 0;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .cn-footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      padding-bottom: 64px;
+    }
+    .cn-footer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+    .cn-footer-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .cn-footer-sub {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .cn-footer-sub span { color: var(--cn-teal); }
+    .cn-footer-desc {
+      font-size: 14px;
+      color: var(--ink-2);
+      line-height: 1.75;
+      max-width: 440px;
+    }
+    .cn-footer-wrap-img {
+      width: 220px;
+      flex-shrink: 0;
+    }
+    .cn-footer-wrap-img img {
+      width: 100%;
+      display: block;
+    }
+    .cn-footer-copy {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding: 20px 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-3);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      #cn-footer { padding: 64px 24px 0; }
+      .cn-footer-inner { flex-direction: column; gap: 32px; align-items: flex-start; padding-bottom: 48px; }
+      .cn-footer-wrap-img { width: 160px; align-self: flex-end; }
+    }
+    @media (max-width: 480px) {
+      #cn-footer { padding: 48px 20px 0; }
+      .cn-footer-inner { gap: 24px; }
+      .cn-footer-wrap-img { width: 130px; }
+    }
   </style>
 </head>
 <body>
@@ -335,6 +705,146 @@
   <p>An AI-powered clinical decision support platform that analyzes patient risk, delivers explainable peri-operative insights, and guides evidence-based care decisions — helping clinicians improve outcomes with confidence.</p>
 </section>
 
+<!-- ═══════════════════════════════════════════════════
+     SECTION 5 — ABOUT PROJECT TABS
+════════════════════════════════════════════════════ -->
+<section id="cn-about">
+
+  <div class="section-label-wrap" style="justify-content:center;margin-bottom:16px;">
+    <span class="section-label"><i class="ti ti-layers-intersect"></i> About Project</span>
+  </div>
+  <h2 class="section-heading" style="max-width:640px;margin:0 auto 40px;">How I designed an AI-powered platform that translates patient data into actionable clinical insights.</h2>
+
+  <!-- Tab strip -->
+  <div class="cn-tabs" id="cn-tabs">
+    <div class="cn-tab cn-tab-on" id="cnt0" onclick="cnTab(0)">
+      <div class="cn-tab-top">
+        <div class="cn-tab-name" id="cntn0">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Overview
+        </div>
+      </div>
+      <div class="cn-tab-sub">Understanding the product</div>
+      <div class="cn-tab-bar"><div class="cn-tab-prog" id="cntp0"></div></div>
+    </div>
+    <div class="cn-tab" id="cnt1" onclick="cnTab(1)">
+      <div class="cn-tab-top">
+        <div class="cn-tab-name" id="cntn1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Problem
+        </div>
+      </div>
+      <div class="cn-tab-sub">Challenges enterprises face today</div>
+      <div class="cn-tab-bar"><div class="cn-tab-prog" id="cntp1"></div></div>
+    </div>
+    <div class="cn-tab" id="cnt2" onclick="cnTab(2)">
+      <div class="cn-tab-top">
+        <div class="cn-tab-name" id="cntn2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Solution
+        </div>
+      </div>
+      <div class="cn-tab-sub">What we aimed to solve</div>
+      <div class="cn-tab-bar"><div class="cn-tab-prog" id="cntp2"></div></div>
+    </div>
+  </div>
+
+  <!-- Tab panel -->
+  <div class="cn-tab-panel">
+    <div class="cn-tab-panel-head" id="cn-panel-head"></div>
+    <div class="cn-tab-panel-body">
+      <div class="cn-tab-panel-left" id="cn-panel-img"></div>
+      <div class="cn-tab-panel-right" id="cn-panel-content"></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 6 — HEY THERE
+════════════════════════════════════════════════════ -->
+<section id="cn-hey">
+  <div class="cn-hey-avatar">
+    <img src="constance-avatar.png" alt="Richard Paul waving" />
+  </div>
+  <div class="cn-hey-body">
+    <p class="cn-hey-title">
+      <span class="cn-hey-wave">👋 Hey there!</span>
+      Most AI products help people work faster. Constance helps clinicians make safer decisions.
+    </p>
+    <p class="cn-hey-desc">This case study explores how I designed an AI-powered clinical decision support platform that transforms complex peri-operative risk models into clear, interpretable insights helping healthcare professionals assess surgical risk, identify complications early, and make more informed treatment decisions.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 7 — HOW IT WORKS
+════════════════════════════════════════════════════ -->
+<section id="cn-hiw">
+  <div class="cn-hiw-inner">
+
+    <div class="section-label-wrap" style="justify-content:center;margin-bottom:16px;">
+      <span class="section-label"><i class="ti ti-route"></i> How It Works</span>
+    </div>
+
+    <p class="cn-hiw-heading">Constance's algorithm provides practical recommendations for op pain management risk stratification based on integrated patient data.</p>
+
+    <div class="cn-hiw-cards">
+      <img src="constance-hiw.png" alt="How It Works — Sign Up, Lookup Patient, Review Recommendations" style="width:100%;display:block;border-radius:16px;" />
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 8 — UI SNIPPETS
+════════════════════════════════════════════════════ -->
+<section id="cn-ui">
+  <div class="cn-ui-inner">
+
+    <div class="section-label-wrap" style="justify-content:center;margin-bottom:16px;">
+      <span class="section-label"><i class="ti ti-layout-grid"></i> UI Snippets</span>
+    </div>
+    <h2 class="section-heading" style="margin-bottom:40px;">Experiences I helped design</h2>
+
+    <div class="cn-ui-grid">
+
+      <!-- Full-width: Dashboard -->
+      <div class="cn-ui-card cn-ui-full">
+        <img src="constance-ui-1.png" alt="Patient Risk Overview Dashboard" />
+      </div>
+
+      <!-- Half: Navigation -->
+      <div class="cn-ui-card cn-ui-full">
+        <img src="constance-ui-2.png" alt="Navigation — Expanded Sidebar, Workspace Switcher, Collapsed Rail" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 9 — FOOTER / WRAP
+════════════════════════════════════════════════════ -->
+<footer id="cn-footer">
+  <div class="cn-footer-inner">
+    <div class="cn-footer-body">
+      <h2 class="cn-footer-title">That's a Wrap</h2>
+      <p class="cn-footer-sub">Want to discuss this <span>project</span> ?</p>
+      <p class="cn-footer-desc">This Project is currently under NDA. If you're interested to learn more. I'm happy to dive deeper into specific design decisions and alternate approaches I considered.</p>
+    </div>
+    <div class="cn-footer-wrap-img">
+      <img src="constance-wrap.png" alt="That's a wrap" />
+    </div>
+  </div>
+  <div class="cn-footer-copy">
+    © 2026 Godi S Richard Paul · AI Product Designer · India
+  </div>
+</footer>
+
+
 <script>
 // ── Menu toggle ──
 function toggleMenu() {
@@ -343,6 +853,123 @@ function toggleMenu() {
   panel.classList.toggle('open');
   if (overlay) overlay.classList.toggle('open');
 }
+
+// ── About Project Tabs ──
+var CN_DUR = 6000;
+var cn_cur = 0, cn_el = 0, cn_st = null, cn_pau = false, cn_rf = null;
+
+var CN_SVGS = {
+  overview: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+  problem:  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+  solution: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+};
+
+var CN_TABS_META = [
+  { key: 'overview', name: 'Overview', title: 'An AI-powered platform for peri-operative risk assessment', desc: 'Understanding the product',
+    body: `
+      <p class="cn-rt">An AI-powered platform for peri-operative risk assessment</p>
+      <p class="cn-rb">Constance is a clinical decision support platform that helps healthcare professionals assess surgical risk before, during, and after procedures.</p>
+      <p class="cn-rb">The platform combines patient data, predictive AI models, and clinical recommendations to provide interpretable risk assessments and treatment guidance for peri-operative care.</p>
+      <p class="cn-rb">Designed for high-pressure clinical environments, Constance enables healthcare teams to access critical insights quickly while maintaining transparency, trust, and clinical oversight.</p>
+      <div class="cn-buls">
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Patient risk stratification</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Predictive clinical analytics</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Post-operative risk assessment</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Pain management recommendations</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>EMR integration</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span>Explainable AI insights</span></div>
+      </div>
+    `,
+    img: 'constance-overview.png'
+  },
+  { key: 'problem', name: 'Problem', title: 'Surgical risk is influenced by hundreds of interconnected variables', desc: 'Challenges enterprises face today',
+    body: `
+      <p class="cn-rt">Surgical risk is influenced by hundreds of interconnected variables</p>
+      <p class="cn-rb">Healthcare institutions rely on risk stratification to improve patient outcomes, reduce complications, and optimize clinical resources. Among these, surgical and peri-operative risk assessment is one of the most critical decision-making processes.</p>
+      <p class="cn-rb">The challenge is that surgical risk is influenced by hundreds of interconnected variables — including patient history, medical conditions, procedural complexity, medications, demographics, and clinical indicators.</p>
+      <p class="cn-rb">Despite the importance of these decisions, many risk assessments still depend heavily on individual clinical expertise or traditional scoring methods that struggle to scale across diverse patient populations.</p>
+      <p class="cn-rt" style="font-size:12px;text-transform:uppercase;letter-spacing:0.06em;font-weight:700;color:var(--ink-2);margin-top:4px;">Core Problems</p>
+      <div class="cn-buls">
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span><strong>Clinical Complexity</strong> : Surgical outcomes are influenced by hundreds of variables, making risk assessment difficult to evaluate consistently and efficiently.</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span><strong>Subjective Decision-Making</strong> : Risk assessments often rely on individual experience and interpretation, leading to variability across clinicians and institutions.</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span><strong>Trust &amp; Bias Concerns</strong> : Many predictive systems lack transparency, making it difficult for clinicians to understand how risk scores are generated and whether recommendations can be trusted.</span></div>
+      </div>
+    `,
+    img: 'constance-problem.png'
+  },
+  { key: 'solution', name: 'Solution', title: 'Bridging predictive intelligence and clinical decision-making.', desc: 'What we aimed to solve',
+    body: `
+      <p class="cn-rt">Bridging predictive intelligence and clinical decision-making.</p>
+      <p class="cn-rb">We designed Constance as an AI-powered clinical decision support platform that helps healthcare professionals assess surgical risk through comprehensive patient analysis, seamless workflow integration, and explainable predictive intelligence.</p>
+      <p class="cn-rb">The experience was built to make sophisticated AI models accessible in everyday clinical practice — combining comprehensive risk evaluation, intuitive workflows, scalable deployment, and interpretable recommendations into a single platform.</p>
+      <p class="cn-rb">By focusing on usability and trust, we transformed predictive AI from a complex analytical system into a practical decision-support tool clinicians could confidently incorporate into patient care.</p>
+      <div class="cn-buls">
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span><strong>Comprehensive:</strong> encompassing all the elements that impact patient's risk profile</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span><strong>Easy to use:</strong> seamless user experience and EHR integration.</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span><strong>Scalable:</strong> a cloud-based risk stratification solution.</span></div>
+        <div class="cn-bul"><i class="ti ti-circle-check"></i><span><strong>Accurate:</strong> proven state-of-the-art AI models based on large data sets.</span></div>
+      </div>
+    `,
+    img: 'constance-solution.png'
+  }
+];
+
+function cnRender(i) {
+  var t = CN_TABS_META[i];
+  document.getElementById('cn-panel-head').innerHTML = `
+    <div class="cn-panel-icon">
+      ${CN_SVGS[t.key]}
+    </div>
+    <div>
+      <div class="cn-panel-title">${t.title}</div>
+      <div class="cn-panel-desc">${t.desc}</div>
+    </div>`;
+  document.getElementById('cn-panel-content').innerHTML = t.body;
+  var imgEl = document.getElementById('cn-panel-img');
+  if (t.img) {
+    imgEl.innerHTML = `<img src="${t.img}" alt="${t.title}" />`;
+  } else {
+    imgEl.innerHTML = '<div style="width:100%;height:100%;background:var(--cn-light);display:flex;align-items:center;justify-content:center;color:var(--cn-teal);font-size:13px;font-weight:600;opacity:0.5;">Image coming soon</div>';
+  }
+}
+
+function cnTab(i) {
+  cancelAnimationFrame(cn_rf);
+  cn_cur = i; cn_el = 0; cn_st = null; cn_pau = false;
+  CN_TABS_META.forEach(function(m, x) {
+    document.getElementById('cnt' + x).classList.toggle('cn-tab-on', x === i);
+    document.getElementById('cntp' + x).style.width = '0%';
+    document.getElementById('cntn' + x).innerHTML = CN_SVGS[m.key] + ' ' + m.name;
+  });
+  var activeNameEl = document.getElementById('cntn' + i);
+  activeNameEl.innerHTML = CN_SVGS[CN_TABS_META[i].key] + ' ' + CN_TABS_META[i].name +
+    ' <span class="cn-tab-pause" id="cn-pause-btn" onclick="cnPause(event)">⏸</span>';
+  cnRender(i);
+  cnTick();
+}
+
+function cnPause(e) {
+  e.stopPropagation();
+  cn_pau = !cn_pau;
+  var btn = document.getElementById('cn-pause-btn');
+  if (cn_pau) { cancelAnimationFrame(cn_rf); cn_el = performance.now() - (cn_st || performance.now()); if(btn) btn.textContent = '▶'; }
+  else { if(btn) btn.textContent = '⏸'; cnTick(); }
+}
+
+function cnTick() {
+  cancelAnimationFrame(cn_rf);
+  var bar = document.getElementById('cntp' + cn_cur);
+  if (!bar || cn_pau) return;
+  cn_st = performance.now() - cn_el;
+  (function t(n) {
+    var d = n - cn_st;
+    bar.style.width = Math.min((d / CN_DUR) * 100, 100) + '%';
+    if (d >= CN_DUR) { cnTab((cn_cur + 1) % 3); return; }
+    cn_rf = requestAnimationFrame(t);
+  })(performance.now());
+}
+
+cnTab(0);
 
 // ── Nav typing ──
 (function() {
