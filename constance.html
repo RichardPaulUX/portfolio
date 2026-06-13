@@ -444,52 +444,8 @@
       max-width: 560px;
       margin: 0 auto 48px;
     }
-    .cn-hiw-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .cn-hiw-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 32px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      position: relative;
-    }
-    .cn-hiw-num {
-      position: absolute;
-      top: -12px;
-      left: 24px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: #f59e0b;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cn-hiw-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: contain;
-      display: block;
-    }
-    .cn-hiw-label {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--ink);
-      text-align: center;
-    }
-
     @media (max-width: 768px) {
       #cn-hiw { padding: 64px 24px; }
-      .cn-hiw-cards { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
     }
     @media (max-width: 480px) {
       #cn-hiw { padding: 48px 16px; }
@@ -835,25 +791,7 @@
     <p class="cn-hiw-heading">Constance's algorithm provides practical recommendations for op pain management risk stratification based on integrated patient data.</p>
 
     <div class="cn-hiw-cards">
-
-      <div class="cn-hiw-card">
-        <div class="cn-hiw-num">1</div>
-        <img class="cn-hiw-img" src="constance-hiw-1.png" alt="Sign Up" />
-        <p class="cn-hiw-label">Sign Up</p>
-      </div>
-
-      <div class="cn-hiw-card">
-        <div class="cn-hiw-num">2</div>
-        <img class="cn-hiw-img" src="constance-hiw-2.png" alt="Lookup or Add Patient" />
-        <p class="cn-hiw-label">Lookup or Add Patient</p>
-      </div>
-
-      <div class="cn-hiw-card">
-        <div class="cn-hiw-num">3</div>
-        <img class="cn-hiw-img" src="constance-hiw-3.png" alt="Review Recommendations" />
-        <p class="cn-hiw-label">Review Recommendations</p>
-      </div>
-
+      <img src="constance-hiw.png" alt="How It Works — Sign Up, Lookup Patient, Review Recommendations" style="width:100%;display:block;border-radius:16px;" />
     </div>
   </div>
 </section>
