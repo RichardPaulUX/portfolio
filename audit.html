@@ -917,19 +917,19 @@ function alRender(i) {
   document.getElementById('al-panel-img').innerHTML = AL_TAB_SVGS[i];
 }
 function alTab(i) {
-  cancelAnimationFrame(ch_rf);
-  ch_cur = i; ch_el = 0; ch_st = null; ch_pau = false;
+  cancelAnimationFrame(al_rf);
+  al_cur = i; al_el = 0; al_st = null; al_pau = false;
   AL_TABS_META.forEach((m, x) => {
-    const tab = document.getElementById('cht' + x);
-    const prog = document.getElementById('chtp' + x);
-    const nameEl = document.getElementById('chtn' + x);
+    const tab = document.getElementById('alt' + x);
+    const prog = document.getElementById('altp' + x);
+    const nameEl = document.getElementById('altn' + x);
     tab.classList.toggle('cx-tab-on', x === i);
     prog.style.width = '0%';
     nameEl.innerHTML = AL_SVGS[m.key] + ' ' + m.name;
   });
-  const activeNameEl = document.getElementById('chtn' + i);
+  const activeNameEl = document.getElementById('altn' + i);
   activeNameEl.innerHTML = AL_SVGS[AL_TABS_META[i].key] + ' ' + AL_TABS_META[i].name +
-    ' <span class="cx-tab-pause" id="ch-pause-btn" onclick="alPause(event)">⏸</span>';
+    ' <span class="cx-tab-pause" id="al-pause-btn" onclick="alPause(event)">⏸</span>';
   alRender(i);
   alTick();
 }
