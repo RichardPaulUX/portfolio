@@ -918,14 +918,14 @@ function ntTab(i) {
   cancelAnimationFrame(nt_rf);
   nt_cur = i; nt_el = 0; nt_st = null; nt_pau = false;
   NT_TABS_META.forEach((m, x) => {
-    const tab = document.getElementById('cht' + x);
-    const prog = document.getElementById('chtp' + x);
-    const nameEl = document.getElementById('chtn' + x);
+    const tab = document.getElementById('ntt' + x);
+    const prog = document.getElementById('nttp' + x);
+    const nameEl = document.getElementById('nttn' + x);
     tab.classList.toggle('cx-tab-on', x === i);
     prog.style.width = '0%';
     nameEl.innerHTML = NT_SVGS[m.key] + ' ' + m.name;
   });
-  const activeNameEl = document.getElementById('chtn' + i);
+  const activeNameEl = document.getElementById('nttn' + i);
   activeNameEl.innerHTML = NT_SVGS[NT_TABS_META[i].key] + ' ' + NT_TABS_META[i].name +
     ' <span class="cx-tab-pause" id="nt-pause-btn" onclick="ntPause(event)">⏸</span>';
   ntRender(i);
@@ -940,7 +940,7 @@ function ntPause(e) {
 }
 function ntTick() {
   cancelAnimationFrame(nt_rf);
-  const bar = document.getElementById('chtp' + nt_cur);
+  const bar = document.getElementById('nttp' + nt_cur);
   if (!bar || nt_pau) return;
   nt_st = performance.now() - nt_el;
   (function t(n) {
