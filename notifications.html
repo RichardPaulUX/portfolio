@@ -904,7 +904,7 @@ const NT_CONTENT = [
 </div>` },
 ];
 function ntRender(i) {
-  const t = CH_CONTENT[i];
+  const t = NT_CONTENT[i];
   document.getElementById('nt-panel-head').innerHTML = `
     <div class="cx-panel-icon">${NT_SVGS[t.key]}</div>
     <div>
@@ -912,7 +912,7 @@ function ntRender(i) {
       <div class="cx-panel-desc">${t.desc}</div>
     </div>`;
   document.getElementById('nt-panel-content').innerHTML = t.body;
-  document.getElementById('nt-panel-img').innerHTML = CH_TAB_SVGS[i];
+  document.getElementById('nt-panel-img').innerHTML = NT_TAB_SVGS[i];
 }
 function ntTab(i) {
   cancelAnimationFrame(nt_rf);
@@ -945,8 +945,8 @@ function ntTick() {
   nt_st = performance.now() - nt_el;
   (function t(n) {
     const d = n - nt_st;
-    bar.style.width = Math.min((d / CH_DUR) * 100, 100) + '%';
-    if (d >= CH_DUR) { ntTab((nt_cur + 1) % 4); return; }
+    bar.style.width = Math.min((d / NT_DUR) * 100, 100) + '%';
+    if (d >= NT_DUR) { ntTab((nt_cur + 1) % 4); return; }
     nt_rf = requestAnimationFrame(t);
   })(performance.now());
 }
