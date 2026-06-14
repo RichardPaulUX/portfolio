@@ -905,14 +905,14 @@ const NT_CONTENT = [
 ];
 function ntRender(i) {
   const t = NT_CONTENT[i];
-  document.getElementById('ch-panel-head').innerHTML = `
+  document.getElementById('nt-panel-head').innerHTML = `
     <div class="cx-panel-icon">${NT_SVGS[t.key]}</div>
     <div>
       <div class="cx-panel-title">${t.title}</div>
       <div class="cx-panel-desc">${t.desc}</div>
     </div>`;
-  document.getElementById('ch-panel-content').innerHTML = t.body;
-  document.getElementById('ch-panel-img').innerHTML = NT_TAB_SVGS[i];
+  document.getElementById('nt-panel-content').innerHTML = t.body;
+  document.getElementById('nt-panel-img').innerHTML = NT_TAB_SVGS[i];
 }
 function ntTab(i) {
   cancelAnimationFrame(nt_rf);
