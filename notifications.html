@@ -274,7 +274,7 @@
 
 <!-- 4. FEATURE DESCRIPTION -->
 <section id="nt-statement">
-  <p>I designed a unified, context-aware AI interaction layer that lets enterprise teams converse with any connected model, agent, or data source &mdash; with persistent thread memory, source citations, and role-based access control and governance built in from the ground up.</p>
+  <p>I designed the Notifications Engine as the awareness layer of the AI Control Plane&mdash;helping users stay informed about conversations, approvals, AI activity, governance events, integrations, and operational changes without overwhelming them with noise.</p>
 </section>
 
 <!-- 5. ABOUT FEATURE (Tabs) -->
@@ -332,7 +332,7 @@
     </div>
     <h2 class="section-heading">See how we designed the system architecture</h2>
     <div class="arch-zoom-trigger" onclick="openNtZoom()" title="Click to zoom">
-      <img src="chat-hiw.png.png" alt="How Chat Module works" style="width:100%;display:block;border-radius:12px;border:1px solid var(--border);" />
+      <img src="notifications-hiw.png" alt="How Notifications works" style="width:100%;display:block;border-radius:12px;border:1px solid var(--border);" />
       <div class="arch-zoom-hint"><i class="ti ti-zoom-in"></i> Click to zoom</div>
     </div>
   </div>
@@ -340,7 +340,7 @@
 <div id="nt-arch-lightbox" class="arch-lightbox" onclick="handleNtLightboxClick(event)">
   <button class="arch-lb-close" onclick="closeNtZoom(event)"><i class="ti ti-x"></i></button>
   <div class="arch-lb-img-wrap" id="nt-lb-wrap">
-    <img id="nt-lb-img" src="chat-hiw.png.png" alt="How Chat Module works" style="width:92vw;" />
+    <img id="nt-lb-img" src="notifications-hiw.png" alt="How Notifications works" style="width:92vw;" />
   </div>
   <div class="arch-lb-controls">
     <button onclick="ntZoomIn(event)"><i class="ti ti-zoom-in"></i></button>
@@ -906,7 +906,7 @@ const NT_CONTENT = [
 function ntRender(i) {
   const t = CH_CONTENT[i];
   document.getElementById('nt-panel-head').innerHTML = `
-    <div class="cx-panel-icon">${CH_SVGS[t.key]}</div>
+    <div class="cx-panel-icon">${NT_SVGS[t.key]}</div>
     <div>
       <div class="cx-panel-title">${t.title}</div>
       <div class="cx-panel-desc">${t.desc}</div>
@@ -917,16 +917,16 @@ function ntRender(i) {
 function ntTab(i) {
   cancelAnimationFrame(nt_rf);
   nt_cur = i; nt_el = 0; nt_st = null; nt_pau = false;
-  CH_TABS_META.forEach((m, x) => {
+  NT_TABS_META.forEach((m, x) => {
     const tab = document.getElementById('cht' + x);
     const prog = document.getElementById('chtp' + x);
     const nameEl = document.getElementById('chtn' + x);
     tab.classList.toggle('cx-tab-on', x === i);
     prog.style.width = '0%';
-    nameEl.innerHTML = CH_SVGS[m.key] + ' ' + m.name;
+    nameEl.innerHTML = NT_SVGS[m.key] + ' ' + m.name;
   });
   const activeNameEl = document.getElementById('chtn' + i);
-  activeNameEl.innerHTML = CH_SVGS[CH_TABS_META[i].key] + ' ' + CH_TABS_META[i].name +
+  activeNameEl.innerHTML = NT_SVGS[NT_TABS_META[i].key] + ' ' + NT_TABS_META[i].name +
     ' <span class="cx-tab-pause" id="nt-pause-btn" onclick="ntPause(event)">⏸</span>';
   ntRender(i);
   ntTick();
