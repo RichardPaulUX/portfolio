@@ -931,14 +931,14 @@ function gaTab(i) {
   activeNameEl.innerHTML = GA_SVGS[GA_TABS_META[i].key] + ' ' + GA_TABS_META[i].name +
     ' <span class="cx-tab-pause" id="ga-pause-btn" onclick="gaPause(event)">⏸</span>';
   gaRender(i);
-  gaTick());
+  gaTick();
 }
 function gaPause(e) {
   e.stopPropagation();
   ga_pau = !ga_pau;
   const btn = document.getElementById('ga-pause-btn');
   if (ga_pau) { cancelAnimationFrame(ga_rf); ga_el = performance.now() - (ga_st || performance.now()); if(btn) btn.textContent = '▶'; }
-  else { if(btn) btn.textContent = '⏸'; gaTick()); }
+  else { if(btn) btn.textContent = '⏸'; gaTick(); }
 }
 function gaTick() {
   cancelAnimationFrame(ga_rf);
@@ -948,7 +948,7 @@ function gaTick() {
   (function t(n) {
     const d = n - ga_st;
     bar.style.width = Math.min((d / GA_DUR) * 100, 100) + '%';
-    if (d >= GA_DUR) { gaTab((al_cur + 1) % 4); return; }
+    if (d >= GA_DUR) { gaTab((ga_cur + 1) % 4); return; }
     ga_rf = requestAnimationFrame(t);
   })(performance.now());
 }
