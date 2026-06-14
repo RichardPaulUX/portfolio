@@ -122,7 +122,7 @@
     .nt-ui-card{border-radius:16px;overflow:hidden;background:var(--blue-light);border:1px solid rgba(36,46,214,.1);box-shadow:0 4px 24px rgba(36,46,214,.06);}
     .nt-ui-card.nt-ui-full{grid-column:1/-1;}
     .nt-ui-card img{width:100%;display:block;}
-    #ch-footer{background:var(--blue);padding:56px 40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;overflow:hidden;box-sizing:border-box;width:100%;}
+    #nt-footer{background:var(--blue);padding:56px 40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;overflow:hidden;box-sizing:border-box;width:100%;}
     .cx-footer-left{display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center;flex:1;max-width:520px;}
     .cx-footer-title{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-0.04em;color:#fff;line-height:1.0;}
     .cx-footer-sub{font-size:16px;font-weight:700;color:#fff;}
@@ -145,7 +145,7 @@
       .nt-cards{grid-template-columns:1fr;}
       .nt-ui-grid{grid-template-columns:1fr;}
       .nt-ui-card.nt-ui-full{grid-column:1;}
-      #ch-footer{flex-direction:column;padding:40px 20px;gap:24px;}
+      #nt-footer{flex-direction:column;padding:40px 20px;gap:24px;}
       .cx-footer-right{display:flex;justify-content:center;order:-1;width:100%;}
       .cx-footer-right img{width:180px;}
       .cx-footer-title{font-size:36px;}
@@ -154,7 +154,7 @@
     }
     @media(max-width:480px){
       .cx-footer-title{font-size:28px;}
-      #ch-footer{padding:32px 16px;}
+      #nt-footer{padding:32px 16px;}
       .cx-meta{grid-template-columns:1fr 1fr;}
       .cx-tab-sub{display:none;}
       .cx-tabs{grid-template-columns:1fr 1fr;}
@@ -274,7 +274,7 @@
 
 <!-- 4. FEATURE DESCRIPTION -->
 <section id="nt-statement">
-  <p>I designed the Notifications Engine as the awareness layer of the AI Control Plane&mdash;helping users stay informed about conversations, approvals, AI activity, governance events, integrations, and operational changes without overwhelming them with noise.</p>
+  <p>I designed a unified, context-aware AI interaction layer that lets enterprise teams converse with any connected model, agent, or data source &mdash; with persistent thread memory, source citations, and role-based access control and governance built in from the ground up.</p>
 </section>
 
 <!-- 5. ABOUT FEATURE (Tabs) -->
@@ -332,7 +332,7 @@
     </div>
     <h2 class="section-heading">See how we designed the system architecture</h2>
     <div class="arch-zoom-trigger" onclick="openNtZoom()" title="Click to zoom">
-      <img src="notifications-hiw.png" alt="How Notifications works" style="width:100%;display:block;border-radius:12px;border:1px solid var(--border);" />
+      <img src="chat-hiw.png.png" alt="How Chat Module works" style="width:100%;display:block;border-radius:12px;border:1px solid var(--border);" />
       <div class="arch-zoom-hint"><i class="ti ti-zoom-in"></i> Click to zoom</div>
     </div>
   </div>
@@ -340,7 +340,7 @@
 <div id="nt-arch-lightbox" class="arch-lightbox" onclick="handleNtLightboxClick(event)">
   <button class="arch-lb-close" onclick="closeNtZoom(event)"><i class="ti ti-x"></i></button>
   <div class="arch-lb-img-wrap" id="nt-lb-wrap">
-    <img id="nt-lb-img" src="notifications-hiw.png" alt="How Notifications works" style="width:92vw;" />
+    <img id="nt-lb-img" src="chat-hiw.png.png" alt="How Chat Module works" style="width:92vw;" />
   </div>
   <div class="arch-lb-controls">
     <button onclick="ntZoomIn(event)"><i class="ti ti-zoom-in"></i></button>
@@ -513,7 +513,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer id="ch-footer">
+<footer id="nt-footer">
   <div class="cx-footer-left">
     <div class="cx-footer-title">That's a Wrap</div>
     <div class="cx-footer-sub">Want to discuss this project?</div>
@@ -869,7 +869,7 @@ const NT_TAB_SVGS = [
 ];
 const NT_CONTENT = [
   { key:'overview', title:'The platform\'s awareness and attention management system', desc:'Understanding the feature',
-    body:`<div class="cx-rt">Consolidating events from conversations, workflows, agents, governance, and integrations into one place</div>
+    body:`<div class="cx-rt">Consolidating events from conversations, workflows, agents, governance, and integrations</div>
 <div class="cx-rb">The Notifications Engine consolidates events from conversations, workflows, AI agents, knowledge systems, governance controls, integrations, and enterprise operations into a unified experience that helps users understand what requires action, review, or visibility.</div>
 <div class="cx-buls">
 <div class="cx-bul"><i class="ti ti-circle-check"></i><span>Surface critical events, approvals, and AI activity across the entire platform</span></div>
@@ -905,14 +905,14 @@ const NT_CONTENT = [
 ];
 function ntRender(i) {
   const t = NT_CONTENT[i];
-  document.getElementById('nt-panel-head').innerHTML = `
+  document.getElementById('ch-panel-head').innerHTML = `
     <div class="cx-panel-icon">${NT_SVGS[t.key]}</div>
     <div>
       <div class="cx-panel-title">${t.title}</div>
       <div class="cx-panel-desc">${t.desc}</div>
     </div>`;
-  document.getElementById('nt-panel-content').innerHTML = t.body;
-  document.getElementById('nt-panel-img').innerHTML = NT_TAB_SVGS[i];
+  document.getElementById('ch-panel-content').innerHTML = t.body;
+  document.getElementById('ch-panel-img').innerHTML = NT_TAB_SVGS[i];
 }
 function ntTab(i) {
   cancelAnimationFrame(nt_rf);
@@ -934,7 +934,7 @@ function ntTab(i) {
 function ntPause(e) {
   e.stopPropagation();
   nt_pau = !nt_pau;
-  const btn = document.getElementById('nt-pause-btn');
+  const btn = document.getElementById('ch-pause-btn');
   if (nt_pau) { cancelAnimationFrame(nt_rf); nt_el = performance.now() - (nt_st || performance.now()); if(btn) btn.textContent = '▶'; }
   else { if(btn) btn.textContent = '⏸'; ntTick(); }
 }
@@ -955,35 +955,35 @@ ntTab(0);
 var ntLbScale = 1;
 function openNtZoom() {
   ntLbScale = 1;
-  document.getElementById('nt-lb-img').style.width = '92vw';
-  document.getElementById('nt-arch-lightbox').classList.add('open');
+  document.getElementById('ch-lb-img').style.width = '92vw';
+  document.getElementById('ch-arch-lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function closeNtZoom(e) {
   if(e) e.stopPropagation();
-  document.getElementById('nt-arch-lightbox').classList.remove('open');
+  document.getElementById('ch-arch-lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
 function handleNtLightboxClick(e) {
-  if(e.target === document.getElementById('nt-arch-lightbox')) closeChZoom();
+  if(e.target === document.getElementById('ch-arch-lightbox')) closeNtZoom();
 }
 function ntZoomIn(e) {
   e.stopPropagation();
   ntLbScale = Math.min(ntLbScale + 0.25, 3);
-  document.getElementById('nt-lb-img').style.width = (92 * ntLbScale) + 'vw';
+  document.getElementById('ch-lb-img').style.width = (92 * ntLbScale) + 'vw';
 }
 function ntZoomOut(e) {
   e.stopPropagation();
   ntLbScale = Math.max(ntLbScale - 0.25, 0.5);
-  document.getElementById('nt-lb-img').style.width = (92 * ntLbScale) + 'vw';
+  document.getElementById('ch-lb-img').style.width = (92 * ntLbScale) + 'vw';
 }
 function ntZoomReset(e) {
   e.stopPropagation();
   ntLbScale = 1;
-  document.getElementById('nt-lb-img').style.width = '92vw';
+  document.getElementById('ch-lb-img').style.width = '92vw';
 }
 document.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') closeChZoom();
+  if(e.key === 'Escape') closeNtZoom();
 });
 </script>
 </body>
