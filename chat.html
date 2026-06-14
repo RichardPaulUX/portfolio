@@ -122,15 +122,14 @@
     .ch-ui-card{border-radius:16px;overflow:hidden;background:var(--blue-light);border:1px solid rgba(36,46,214,.1);box-shadow:0 4px 24px rgba(36,46,214,.06);}
     .ch-ui-card.ch-ui-full{grid-column:1/-1;}
     .ch-ui-card img{width:100%;display:block;}
-    #ch-footer{background:var(--ink);padding:56px 40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;box-sizing:border-box;width:100%;}
-    .cx-footer-left{flex:1;min-width:260px;}
-    .cx-footer-title{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.04em;color:#fff;line-height:1.05;margin-bottom:12px;}
-    .cx-footer-sub{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:16px;}
-    .cx-footer-sub span{color:#fff;font-weight:600;}
-    .cx-footer-body{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:400px;}
-    .cx-footer-right{flex-shrink:0;}
-    .cx-footer-right img{width:220px;border-radius:var(--r-lg);}
-    .cx-footer-bottom{width:100%;text-align:center;font-size:11px;color:rgba(255,255,255,.25);margin-top:8px;}
+    #ch-footer{background:var(--blue);padding:56px 40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;overflow:hidden;box-sizing:border-box;width:100%;}
+    .cx-footer-left{display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center;flex:1;max-width:520px;}
+    .cx-footer-title{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-0.04em;color:#fff;line-height:1.0;}
+    .cx-footer-sub{font-size:16px;font-weight:700;color:#fff;}
+    .cx-footer-body{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.75;max-width:480px;text-align:center;}
+    .cx-footer-right{display:flex;align-items:flex-end;justify-content:flex-end;}
+    .cx-footer-right img{width:320px;display:block;}
+    .cx-footer-bottom{width:100%;text-align:center;padding-top:24px;margin-top:32px;border-top:1px solid rgba(255,255,255,0.15);font-size:11px;color:rgba(255,255,255,0.45);font-family:'Manrope',sans-serif;letter-spacing:0.04em;}
     @media(max-width:768px){
       body{overflow-x:hidden;}
       .cx-h1{font-size:clamp(20px,6vw,32px);letter-spacing:-.02em;}
@@ -146,11 +145,16 @@
       .ch-cards{grid-template-columns:1fr;}
       .ch-ui-grid{grid-template-columns:1fr;}
       .ch-ui-card.ch-ui-full{grid-column:1;}
-      #ch-footer{padding:48px 20px;}
+      #ch-footer{flex-direction:column;padding:40px 20px;gap:24px;}
+      .cx-footer-right{display:flex;justify-content:center;order:-1;width:100%;}
+      .cx-footer-right img{width:180px;}
+      .cx-footer-title{font-size:36px;}
       #ch-hero .cx-container{padding:24px 20px 0;}
       #ch-browser .cx-container{padding:0 20px;}
     }
     @media(max-width:480px){
+      .cx-footer-title{font-size:28px;}
+      #ch-footer{padding:32px 16px;}
       .cx-meta{grid-template-columns:1fr 1fr;}
       .cx-tab-sub{display:none;}
       .cx-tabs{grid-template-columns:1fr 1fr;}
@@ -498,7 +502,7 @@
 <footer id="ch-footer">
   <div class="cx-footer-left">
     <div class="cx-footer-title">That's a Wrap</div>
-    <div class="cx-footer-sub">Want to discuss this <span>feature</span>?</div>
+    <div class="cx-footer-sub">Want to discuss this project?</div>
     <p class="cx-footer-body">This feature is part of xnode, currently under NDA. Happy to dive deeper into specific design decisions and the alternate approaches I explored.</p>
   </div>
   <div class="cx-footer-right"><img src="chat-wrap.png" alt="That's a wrap" /></div>
