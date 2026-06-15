@@ -203,11 +203,16 @@ body {
   right: -20px;
   bottom: -40px;
   width: 160px;
+  max-height: calc(100% + 40px);
+  overflow: hidden;
 }
 .menu-right img {
   width: 100%;
   height: auto;
   display: block;
+  max-height: 340px;
+  object-fit: contain;
+  object-position: bottom;
 }
 
 .menu-footer {
