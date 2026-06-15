@@ -868,14 +868,14 @@ const GR_CONTENT = [
   ];
 function grRender(i) {
   const t = GR_CONTENT[i];
-  document.getElementById('ch-panel-head').innerHTML = `
+  document.getElementById('gr-panel-head').innerHTML = `
     <div class="cx-panel-icon">${GR_SVGS[t.key]}</div>
     <div>
       <div class="cx-panel-title">${t.title}</div>
       <div class="cx-panel-desc">${t.desc}</div>
     </div>`;
-  document.getElementById('ch-panel-content').innerHTML = t.body;
-  document.getElementById('ch-panel-img').innerHTML = GR_TAB_SVGS[i];
+  document.getElementById('gr-panel-content').innerHTML = t.body;
+  document.getElementById('gr-panel-img').innerHTML = GR_TAB_SVGS[i];
 }
 function grTab(i) {
   cancelAnimationFrame(gr_rf);
