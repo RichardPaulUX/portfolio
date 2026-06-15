@@ -948,67 +948,9 @@ function grZoomReset(e) {
 document.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') closeGrZoom();
 });
-document.getElementById('gr-lb-wrap').addEventListener('wheel', function(e) {
-  e.preventDefault();
-  if(e.deltaY < 0) { grLbScale = Math.min(grLbScale + 0.15, 3); }
-  else { grLbScale = Math.max(grLbScale - 0.15, 0.5); }
-  document.getElementById('gr-lb-img').style.width = (92 * grLbScale) + 'vw';
-}, { passive: false });
+
 // Scroll-to-zoom for HIW lightbox
-(function() {
-  var lb   = document.getElementById('gr-arch-lightbox');
-  var img  = document.getElementById('gr-lb-img');
-  var wrap = document.getElementById('gr-lb-wrap');
-  if (!wrap || !img || !lb) return;
 
-  var scale = 1;
-  var baseW = 0;
-
-  function applyScale() {
-    var w = Math.round(baseW * scale);
-    img.style.width = w + 'px';
-    var padH = Math.max(20, Math.round((wrap.clientWidth - w) / 2));
-    wrap.style.padding = '20px ' + padH + 'px';
-  }
-
-  var orig_open = window['openGrZoom'];
-  window['openGrZoom'] = function() {
-    orig_open && orig_open();
-    requestAnimationFrame(function() {
-      var maxW = wrap.clientWidth - 40;
-      var maxH = wrap.clientHeight - 40;
-      var ratio = img.naturalWidth / img.naturalHeight || 16/9;
-      baseW = Math.min(maxW, maxH * ratio, img.naturalWidth || maxW);
-      scale = 1;
-      applyScale();
-      wrap.scrollTop = 0; wrap.scrollLeft = 0;
-    });
-  };
-
-  wrap.addEventListener('wheel', function(e) {
-    if (!lb.classList.contains('open')) return;
-    e.preventDefault();
-    var rect = wrap.getBoundingClientRect();
-    var padH = parseFloat(wrap.style.paddingLeft) || 20;
-    var padV = parseFloat(wrap.style.paddingTop)  || 20;
-    var ptX = e.clientX - rect.left + wrap.scrollLeft - padH;
-    var ptY = e.clientY - rect.top  + wrap.scrollTop  - padV;
-    var oldW = img.offsetWidth || 1;
-    var oldH = img.offsetHeight || 1;
-    var delta = e.deltaY < 0 ? 0.12 : -0.12;
-    scale = Math.min(Math.max(scale + delta, 0.25), 4);
-    applyScale();
-    var newPadH = parseFloat(wrap.style.paddingLeft) || 20;
-    var newPadV = parseFloat(wrap.style.paddingTop)  || 20;
-    wrap.scrollLeft = ptX * (img.offsetWidth / oldW) + newPadH - (e.clientX - rect.left);
-    wrap.scrollTop  = ptY * (img.offsetHeight / oldH) + newPadV - (e.clientY - rect.top);
-  }, { passive: false });
-
-  // Also update CSS for scrollable wrap
-  wrap.style.display = 'block';
-  wrap.style.overflowX = 'auto';
-  wrap.style.overflowY = 'auto';
-})();
 
 (function() {
   var lb=document.getElementById('gr-arch-lightbox'),img=document.getElementById('gr-lb-img'),wrap=document.getElementById('gr-lb-wrap');
@@ -1016,7 +958,7 @@ document.getElementById('gr-lb-wrap').addEventListener('wheel', function(e) {
   var scale=1,baseW=0;
   function applyScale(){var w=Math.round(baseW*scale);img.style.width=w+'px';var padH=Math.max(20,Math.round((wrap.clientWidth-w)/2));wrap.style.padding='20px '+padH+'px';}
   var orig=window['openGrZoom'];
-  window['openGrZoom']=function(){orig&&orig();requestAnimationFrame(function(){var maxW=wrap.clientWidth-40,maxH=wrap.clientHeight-40,ratio=img.naturalWidth/img.naturalHeight||16/9;baseW=Math.min(maxW,maxH*ratio,img.naturalWidth||maxW);scale=1;applyScale();wrap.scrollTop=0;wrap.scrollLeft=0;});};
+  window['openGrZoom']=function(){orig&&orig();requestAnimationFrame(function(){var maxW=wrap.clientWidth-40,maxH=wrap.clientHeight-40,ratio=img.naturalWidth/img.naturalHeight||16/9;baseW=Math.min(maxW,maxH*ratio,img.naturalWidth||maxW);scale=1;applyScale();wrap.scrollTop=0;wrap.scrollLeft=0;});}; 
   wrap.addEventListener('wheel',function(e){if(!lb.classList.contains('open'))return;e.preventDefault();var rect=wrap.getBoundingClientRect(),padH=parseFloat(wrap.style.paddingLeft)||20,padV=parseFloat(wrap.style.paddingTop)||20,ptX=e.clientX-rect.left+wrap.scrollLeft-padH,ptY=e.clientY-rect.top+wrap.scrollTop-padV,oldW=img.offsetWidth||1,oldH=img.offsetHeight||1,delta=e.deltaY<0?0.12:-0.12;scale=Math.min(Math.max(scale+delta,0.25),4);applyScale();var nH=parseFloat(wrap.style.paddingLeft)||20,nV=parseFloat(wrap.style.paddingTop)||20;wrap.scrollLeft=ptX*(img.offsetWidth/oldW)+nH-(e.clientX-rect.left);wrap.scrollTop=ptY*(img.offsetHeight/oldH)+nV-(e.clientY-rect.top);},{passive:false});
 })();
 </script>
