@@ -982,7 +982,12 @@ function stZoomReset(e) {
 document.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') closeStZoom();
 });
-stTab(0);
+document.getElementById('st-lb-wrap').addEventListener('wheel', function(e) {
+  e.preventDefault();
+  if(e.deltaY < 0) { stLbScale = Math.min(stLbScale + 0.15, 3); }
+  else { stLbScale = Math.max(stLbScale - 0.15, 0.5); }
+  document.getElementById('st-lb-img').style.width = (92 * stLbScale) + 'vw';
+}, { passive: false });
 </script>
 </body>
 </html>

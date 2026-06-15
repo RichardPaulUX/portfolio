@@ -989,6 +989,12 @@ function chZoomReset(e) {
 document.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') closeChZoom();
 });
+document.getElementById('ch-lb-wrap').addEventListener('wheel', function(e) {
+  e.preventDefault();
+  if(e.deltaY < 0) { chLbScale = Math.min(chLbScale + 0.15, 3); }
+  else { chLbScale = Math.max(chLbScale - 0.15, 0.5); }
+  document.getElementById('ch-lb-img').style.width = (92 * chLbScale) + 'vw';
+}, { passive: false });
 </script>
 </body>
 </html>
