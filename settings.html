@@ -283,7 +283,7 @@
     <div class="section-label-wrap">
       <span class="section-label"><i class="ti ti-info-circle"></i> About Feature</span>
     </div>
-    <h2 class="section-heading">Interaction layer, where humans, AI agents, and systems collaborate on real work.</h2>
+    <h2 class="section-heading">Configuration backbone that governs how AI behaves across the entire enterprise.</h2>
     <div class="cx-tabs" id="st-tabs">
       <div class="cx-tab cx-tab-on" id="stt0" onclick="stTab(0)">
         <div class="cx-tab-top"><div class="cx-tab-name" id="sttn0">
@@ -988,8 +988,9 @@ function chZoomReset(e) {
   document.getElementById('ch-lb-img').style.width = '92vw';
 }
 document.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') closeChZoom();
+  if(e.key === 'Escape') closeStZoom();
 });
+stTab(0);
 </script>
 </body>
 </html>
