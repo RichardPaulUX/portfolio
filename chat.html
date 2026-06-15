@@ -88,7 +88,7 @@
     .arch-zoom-trigger:hover .arch-zoom-hint{opacity:1;}
     .arch-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;}
     .arch-lightbox.open{opacity:1;pointer-events:all;}
-    .arch-lb-img-wrap{overflow:auto;width:92vw;max-height:88vh;cursor:grab;box-sizing:border-box;}
+    .arch-lb-img-wrap{overflow:auto;width:92vw;max-height:88vh;cursor:grab;box-sizing:border-box;display:flex;}
     .arch-lb-img-wrap:active{cursor:grabbing;}
     #ch-lb-img{display:block;border-radius:8px;max-width:none;height:auto;}
     .arch-lb-close{position:fixed;top:24px;right:24px;background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
@@ -340,7 +340,7 @@
 <div id="ch-arch-lightbox" class="arch-lightbox" onclick="handleChLightboxClick(event)">
   <button class="arch-lb-close" onclick="closeChZoom(event)"><i class="ti ti-x"></i></button>
   <div class="arch-lb-img-wrap" id="ch-lb-wrap">
-    <img id="ch-lb-img" src="chat-hiw.png.png" alt="How Chat Module works" style="width:92vw;" />
+    <img id="ch-lb-img" src="chat-hiw.png.png" alt="How Chat Module works" style="display:block;border-radius:8px;max-width:none;height:auto;" />
   </div>
   <div class="arch-lb-controls">
     <button onclick="chZoomIn(event)"><i class="ti ti-zoom-in"></i></button>
@@ -951,49 +951,89 @@ function chTick() {
     const d = n - ch_st;
     bar.style.width = Math.min((d / CH_DUR) * 100, 100) + '%';
     if (d >= CH_DUR) { chTab((ch_cur + 1) % 4); return; }
-    ch_rf = requestAnimationFrame(t);
-  })(performance.now());
-}
-chTab(0);
+    ch_rf = req// HIW Lightbox
+(function() {
+  var lb   = document.getElementById('ch-arch-lightbox');
+  var img  = document.getElementById('ch-lb-img');
+  var wrap = document.getElementById('ch-lb-wrap');
+  var scale = 1;
+  var baseW = 0;
 
-var chLbScale = 1;
-function openChZoom() {
-  chLbScale = 1;
-  document.getElementById('ch-lb-img').style.width = '92vw';
-  document.getElementById('ch-arch-lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeChZoom(e) {
-  if(e) e.stopPropagation();
-  document.getElementById('ch-arch-lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function handleChLightboxClick(e) {
-  if(e.target === document.getElementById('ch-arch-lightbox')) closeChZoom();
-}
-function chZoomIn(e) {
-  e.stopPropagation();
-  chLbScale = Math.min(chLbScale + 0.25, 3);
-  document.getElementById('ch-lb-img').style.width = (92 * chLbScale) + 'vw';
-}
-function chZoomOut(e) {
-  e.stopPropagation();
-  chLbScale = Math.max(chLbScale - 0.25, 0.5);
-  document.getElementById('ch-lb-img').style.width = (92 * chLbScale) + 'vw';
-}
-function chZoomReset(e) {
-  e.stopPropagation();
-  chLbScale = 1;
-  document.getElementById('ch-lb-img').style.width = '92vw';
-}
-document.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') closeChZoom();
-});
-document.getElementById('ch-lb-wrap').addEventListener('wheel', function(e) {
-  e.preventDefault();
-  if(e.deltaY < 0) { chLbScale = Math.min(chLbScale + 0.15, 3); }
-  else { chLbScale = Math.max(chLbScale - 0.15, 0.5); }
-  document.getElementById('ch-lb-img').style.width = (92 * chLbScale) + 'vw';
+  function applyScale() {
+    var w = Math.round(baseW * scale);
+    img.style.width = w + 'px';
+    var padH = Math.max(20, Math.round((wrap.clientWidth - w) / 2));
+    wrap.style.padding = '20px ' + padH + 'px';
+  }
+
+  window.openChZoom = function() {
+    img.src = (document.querySelector('#ch-hiw img') || {}).src || img.src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function() {
+      var maxW = wrap.clientWidth - 40;
+      var maxH = wrap.clientHeight - 40;
+      var ratio = img.naturalWidth / img.naturalHeight || 1;
+      baseW = Math.min(maxW, maxH * ratio, img.naturalWidth || maxW);
+      scale = 1;
+      applyScale();
+      wrap.scrollTop = 0; wrap.scrollLeft = 0;
+    });
+  };
+
+  window.closeChZoom = function(e) {
+    if (e) e.stopPropagation();
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  window.handleChLightboxClick = function(e) {
+    if (e.target === lb) closeChZoom();
+  };
+
+  window.chZoomIn = function(e) {
+    e && e.stopPropagation();
+    scale = Math.min(scale + 0.35, 4);
+    applyScale();
+  };
+
+  window.chZoomOut = function(e) {
+    e && e.stopPropagation();
+    scale = Math.max(scale - 0.35, 0.25);
+    applyScale();
+    wrap.scrollTop = 0; wrap.scrollLeft = 0;
+  };
+
+  window.chZoomReset = function(e) {
+    e && e.stopPropagation();
+    scale = 1;
+    applyScale();
+    wrap.scrollTop = 0; wrap.scrollLeft = 0;
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lb.classList.contains('open')) closeChZoom();
+  });
+
+  wrap && wrap.addEventListener('wheel', function(e) {
+    if (!lb.classList.contains('open')) return;
+    e.preventDefault();
+    var rect = wrap.getBoundingClientRect();
+    var padH = parseFloat(wrap.style.paddingLeft) || 20;
+    var padV = parseFloat(wrap.style.paddingTop) || 20;
+    var ptX = e.clientX - rect.left + wrap.scrollLeft - padH;
+    var ptY = e.clientY - rect.top  + wrap.scrollTop  - padV;
+    var oldW = img.offsetWidth;
+    var oldH = img.offsetHeight;
+    var delta = e.deltaY < 0 ? 0.12 : -0.12;
+    scale = Math.min(Math.max(scale + delta, 0.25), 4);
+    applyScale();
+    var newPadH = parseFloat(wrap.style.paddingLeft) || 20;
+    var newPadV = parseFloat(wrap.style.paddingTop) || 20;
+    wrap.scrollLeft = ptX * (img.offsetWidth / oldW) + newPadH - (e.clientX - rect.left);
+    wrap.scrollTop  = ptY * (img.offsetHeight / oldH) + newPadV - (e.clientY - rect.top);
+  }, { passive: false });
+})();tyle.width = (92 * chLbScale) + 'vw';
 }, { passive: false });
 </script>
 </body>

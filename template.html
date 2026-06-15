@@ -88,7 +88,7 @@
     .arch-zoom-trigger:hover .arch-zoom-hint{opacity:1;}
     .arch-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;}
     .arch-lightbox.open{opacity:1;pointer-events:all;}
-    .arch-lb-img-wrap{overflow:auto;width:92vw;max-height:88vh;cursor:grab;box-sizing:border-box;}
+    .arch-lb-img-wrap{overflow:auto;width:92vw;max-height:88vh;cursor:grab;box-sizing:border-box;display:flex;}
     .arch-lb-img-wrap:active{cursor:grabbing;}
     #ch-lb-img{display:block;border-radius:8px;max-width:none;height:auto;}
     .arch-lb-close{position:fixed;top:24px;right:24px;background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
@@ -342,7 +342,7 @@
 <div id="tl-arch-lightbox" class="arch-lightbox" onclick="handleTlLightboxClick(event)">
   <button class="arch-lb-close" onclick="closeTlZoom(event)"><i class="ti ti-x"></i></button>
   <div class="arch-lb-img-wrap" id="ch-lb-wrap">
-    <img id="tl-lb-img" src="template-hiw.png.png" alt="Template Library architecture" style="width:92vw;" />
+    <img id="tl-lb-img" src="template-hiw.png.png" alt="Template Library architecture" style="display:block;border-radius:8px;max-width:none;height:auto;" />
   </div>
   <div class="arch-lb-controls">
     <button onclick="tlZoomIn(event)"><i class="ti ti-zoom-in"></i></button>
@@ -949,42 +949,89 @@ function tlTick() {
     const d = n - ch_st;
     bar.style.width = Math.min((d / CH_DUR) * 100, 100) + '%';
     if (d >= CH_DUR) { tlTab((ch_cur + 1) % 4); return; }
-    ch_rf = requestAnimationFrame(t);
-  })(performance.now());
-}
-tlTab(0);
+    ch_rf = req// HIW Lightbox
+(function() {
+  var lb   = document.getElementById('tl-arch-lightbox');
+  var img  = document.getElementById('tl-lb-img');
+  var wrap = document.getElementById('tl-lb-wrap');
+  var scale = 1;
+  var baseW = 0;
 
-var chLbScale = 1;
-function openTlZoom() {
-  chLbScale = 1;
-  document.getElementById('tl-lb-img').style.width = '92vw';
-  document.getElementById('tl-arch-lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeTlZoom(e) {
-  if(e) e.stopPropagation();
-  document.getElementById('tl-arch-lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function handleTlLightboxClick(e) {
-  if(e.target === document.getElementById('tl-arch-lightbox')) closeTlZoom();
-}
-function tlZoomIn(e) {
-  e.stopPropagation();
-  chLbScale = Math.min(chLbScale + 0.25, 3);
-  document.getElementById('tl-lb-img').style.width = (92 * chLbScale) + 'vw';
-}
-function tlZoomOut(e) {
-  e.stopPropagation();
-  chLbScale = Math.max(chLbScale - 0.25, 0.5);
-  document.getElementById('tl-lb-img').style.width = (92 * chLbScale) + 'vw';
-}
-function tlZoomReset(e) {
-  e.stopPropagation();
-  chLbScale = 1;
-  document.getElementById('tl-lb-img').style.width = '92vw';
-}
-document.addEventListener('keydown', function(e) {
+  function applyScale() {
+    var w = Math.round(baseW * scale);
+    img.style.width = w + 'px';
+    var padH = Math.max(20, Math.round((wrap.clientWidth - w) / 2));
+    wrap.style.padding = '20px ' + padH + 'px';
+  }
+
+  window.openTlZoom = function() {
+    img.src = (document.querySelector('#tl-hiw img') || {}).src || img.src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function() {
+      var maxW = wrap.clientWidth - 40;
+      var maxH = wrap.clientHeight - 40;
+      var ratio = img.naturalWidth / img.naturalHeight || 1;
+      baseW = Math.min(maxW, maxH * ratio, img.naturalWidth || maxW);
+      scale = 1;
+      applyScale();
+      wrap.scrollTop = 0; wrap.scrollLeft = 0;
+    });
+  };
+
+  window.closeTlZoom = function(e) {
+    if (e) e.stopPropagation();
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  window.handleTlLightboxClick = function(e) {
+    if (e.target === lb) closeTlZoom();
+  };
+
+  window.tlZoomIn = function(e) {
+    e && e.stopPropagation();
+    scale = Math.min(scale + 0.35, 4);
+    applyScale();
+  };
+
+  window.tlZoomOut = function(e) {
+    e && e.stopPropagation();
+    scale = Math.max(scale - 0.35, 0.25);
+    applyScale();
+    wrap.scrollTop = 0; wrap.scrollLeft = 0;
+  };
+
+  window.tlZoomReset = function(e) {
+    e && e.stopPropagation();
+    scale = 1;
+    applyScale();
+    wrap.scrollTop = 0; wrap.scrollLeft = 0;
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lb.classList.contains('open')) closeTlZoom();
+  });
+
+  wrap && wrap.addEventListener('wheel', function(e) {
+    if (!lb.classList.contains('open')) return;
+    e.preventDefault();
+    var rect = wrap.getBoundingClientRect();
+    var padH = parseFloat(wrap.style.paddingLeft) || 20;
+    var padV = parseFloat(wrap.style.paddingTop) || 20;
+    var ptX = e.clientX - rect.left + wrap.scrollLeft - padH;
+    var ptY = e.clientY - rect.top  + wrap.scrollTop  - padV;
+    var oldW = img.offsetWidth;
+    var oldH = img.offsetHeight;
+    var delta = e.deltaY < 0 ? 0.12 : -0.12;
+    scale = Math.min(Math.max(scale + delta, 0.25), 4);
+    applyScale();
+    var newPadH = parseFloat(wrap.style.paddingLeft) || 20;
+    var newPadV = parseFloat(wrap.style.paddingTop) || 20;
+    wrap.scrollLeft = ptX * (img.offsetWidth / oldW) + newPadH - (e.clientX - rect.left);
+    wrap.scrollTop  = ptY * (img.offsetHeight / oldH) + newPadV - (e.clientY - rect.top);
+  }, { passive: false });
+})();n', function(e) {
   if(e.key === 'Escape') closeTlZoom();
 });
 </script>
