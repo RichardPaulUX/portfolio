@@ -536,7 +536,7 @@ function typeLoop(){
 setTimeout(function(){typedEl=document.getElementById('nav-typed');iconEl=document.getElementById('nav-icon');typeLoop();},2600);
 
 const CH_DUR = 6000;
-let ch_cur = 0, ch_pau = false, ch_st = null, ch_el = 0, ch_rf = null;
+let tl_cur = 0, tl_pau = false, tl_st = null, tl_el = 0, tl_rf = null;
 const CH_SVGS = {
   overview: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
   problem:  `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>`,
@@ -904,11 +904,11 @@ function tlRender(i) {
   document.getElementById('tl-panel-img').innerHTML = TL_TAB_SVGS[i];
 }
 function tlTab(i) {
-  cancelAnimationFrame(ch_rf);
-  ch_cur = i; ch_el = 0; ch_st = null; ch_pau = false;
+  cancelAnimationFrame(tl_rf);
+  tl_cur = i; tl_el = 0; tl_st = null; tl_pau = false;
   TL_TABS_META.forEach((m, x) => {
     const tab = document.getElementById('cht' + x);
-    const prog = document.getElementById('chtp' + x);
+    const prog = document.getElementById('tltp' + x);
     const nameEl = document.getElementById('chtn' + x);
     tab.classList.toggle('cx-tab-on', x === i);
     prog.style.width = '0%';
@@ -922,21 +922,21 @@ function tlTab(i) {
 }
 function tlPause(e) {
   e.stopPropagation();
-  ch_pau = !ch_pau;
+  tl_pau = !tl_pau;
   const btn = document.getElementById('ch-pause-btn');
-  if (ch_pau) { cancelAnimationFrame(ch_rf); ch_el = performance.now() - (ch_st || performance.now()); if(btn) btn.textContent = '▶'; }
+  if (tl_pau) { cancelAnimationFrame(tl_rf); tl_el = performance.now() - (tl_st || performance.now()); if(btn) btn.textContent = '▶'; }
   else { if(btn) btn.textContent = '⏸'; tlTick(); }
 }
 function tlTick() {
-  cancelAnimationFrame(ch_rf);
-  const bar = document.getElementById('chtp' + ch_cur);
-  if (!bar || ch_pau) return;
-  ch_st = performance.now() - ch_el;
+  cancelAnimationFrame(tl_rf);
+  const bar = document.getElementById('tltp' + tl_cur);
+  if (!bar || tl_pau) return;
+  tl_st = performance.now() - tl_el;
   (function t(n) {
-    const d = n - ch_st;
+    const d = n - tl_st;
     bar.style.width = Math.min((d / CH_DUR) * 100, 100) + '%';
-    if (d >= CH_DUR) { tlTab((ch_cur + 1) % 4); return; }
-    ch_rf = requestAnimationFrame(t);
+    if (d >= CH_DUR) { tlTab((tl_cur + 1) % 4); return; }
+    tl_rf = requestAnimationFrame(t);
   })(performance.now());
 }
 tlTab(0);
