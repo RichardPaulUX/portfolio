@@ -921,7 +921,7 @@ function ntTab(i) {
 function ntPause(e) {
   e.stopPropagation();
   nt_pau = !nt_pau;
-  const btn = document.getElementById('ch-pause-btn');
+  const btn = document.getElementById('nt-pause-btn');
   if (nt_pau) { cancelAnimationFrame(nt_rf); nt_el = performance.now() - (nt_st || performance.now()); if(btn) btn.textContent = '▶'; }
   else { if(btn) btn.textContent = '⏸'; ntTick(); }
 }
@@ -942,32 +942,32 @@ ntTab(0);
 var ntLbScale = 1;
 function openNtZoom() {
   ntLbScale = 1;
-  document.getElementById('ch-lb-img').style.width = '92vw';
-  document.getElementById('ch-arch-lightbox').classList.add('open');
+  document.getElementById('nt-lb-img').style.width = '92vw';
+  document.getElementById('nt-arch-lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function closeNtZoom(e) {
   if(e) e.stopPropagation();
-  document.getElementById('ch-arch-lightbox').classList.remove('open');
+  document.getElementById('nt-arch-lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
 function handleNtLightboxClick(e) {
-  if(e.target === document.getElementById('ch-arch-lightbox')) closeNtZoom();
+  if(e.target === document.getElementById('nt-arch-lightbox')) closeNtZoom();
 }
 function ntZoomIn(e) {
   e.stopPropagation();
   ntLbScale = Math.min(ntLbScale + 0.25, 3);
-  document.getElementById('ch-lb-img').style.width = (92 * ntLbScale) + 'vw';
+  document.getElementById('nt-lb-img').style.width = (92 * ntLbScale) + 'vw';
 }
 function ntZoomOut(e) {
   e.stopPropagation();
   ntLbScale = Math.max(ntLbScale - 0.25, 0.5);
-  document.getElementById('ch-lb-img').style.width = (92 * ntLbScale) + 'vw';
+  document.getElementById('nt-lb-img').style.width = (92 * ntLbScale) + 'vw';
 }
 function ntZoomReset(e) {
   e.stopPropagation();
   ntLbScale = 1;
-  document.getElementById('ch-lb-img').style.width = '92vw';
+  document.getElementById('nt-lb-img').style.width = '92vw';
 }
 document.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') closeNtZoom();
